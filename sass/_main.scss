@@ -1,0 +1,89 @@
+@use 'variables';
+
+.main {
+    margin: auto;
+    padding: 40px 80px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+
+    &__filtros {
+        display: flex;
+        gap: 10px;
+    }
+
+    &__titulo {
+        margin-bottom: 20px;
+    }
+
+    &__grid {
+        display: grid;
+        gap: 40px;
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    &__media-titulo {
+        font-size: 14px;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    &__media-genero {
+        text-align: center;
+        font-size: 13px;
+    }
+
+    &__media-img {
+        width: 100%;
+        vertical-align: top;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        background: variables.$color-btn;
+        min-height: 170px;
+    }
+
+    &__paginacion {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    // Desktop medio
+    @media (max-width: 1024px) {
+        padding: 40px;
+
+        &__grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+    }
+
+    // Tablet
+    @media (max-width: 768px) {
+        padding: 15px;
+
+        &__filtros {
+            padding-left: 55px;
+        }
+
+        &__grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+    }
+
+    // Móvil
+    @media (max-width: 480px) {
+        padding: 15px;
+
+        &__filtros {
+            justify-content: center;
+            padding-left: 0;
+        }
+
+        &__grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+    }
+}
