@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+		<script src="./public/listas-bundle.js" defer></script>
+		<link rel="stylesheet" href="./public/bundle.css" />
+		<title>Listas — CineTrack</title>
+	</head>
+	<body>
+		<nav class="nav-app">
+			<div class="nav-app__izq">
+				<a href="./index.html" class="nav-app__logo-wrap">
+					<img src="./img/logo.png" alt="Logo" class="nav-app__logo" />
+				</a>
+				<ul class="nav-app__links">
+					<li><a href="./index.html" class="nav-app__link">Inicio</a></li>
+					<li><a href="./peliculas.html" class="nav-app__link">Películas</a></li>
+					<li><a href="./listas.html" class="nav-app__link">Listas</a></li>
+					<li><a href="./miembros.html" class="nav-app__link">Miembros</a></li>
+				</ul>
+			</div>
+			<div class="nav-app__der" id="nav-auth"></div>
+		</nav>
+
+		<main class="listas">
+			<div class="listas__cabecera">
+				<p class="listas__titulo">Comunidad</p>
+				<h1 class="listas__subtitulo">Listas</h1>
+			</div>
+			<div class="listas__grid" id="listas-grid">
+				<p class="listas__vacio">Cargando...</p>
+			</div>
+		</main>
+	</body>
+</html>

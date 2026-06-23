@@ -1,0 +1,224 @@
+@use 'variables';
+
+.config {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 48px 32px 100px;
+
+    @media (max-width: 600px) { padding: 32px 16px 80px; }
+
+    // ─── Cabecera ───────────────────────────────────────
+    &__cabecera {
+        margin-bottom: 48px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        padding-bottom: 24px;
+    }
+
+    &__eyebrow {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: #444;
+        margin-bottom: 6px;
+    }
+
+    &__titulo {
+        font-size: 26px;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: -0.3px;
+    }
+
+    // ─── Sección ────────────────────────────────────────
+    &__seccion {
+        margin-bottom: 0;
+        padding: 36px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+        &:last-child { border-bottom: none; }
+    }
+
+    &__seccion-titulo {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #444;
+        margin-bottom: 24px;
+    }
+
+    // ─── Formulario ─────────────────────────────────────
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &__campo {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+    }
+
+    &__label {
+        font-size: 12px;
+        font-weight: 600;
+        color: #888;
+        letter-spacing: 0.3px;
+    }
+
+    &__input {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        padding: 11px 14px;
+        color: #fff;
+        font-family: variables.$fuente-primaria;
+        font-size: 14px;
+        outline: none;
+        transition: border-color 0.2s;
+        width: 100%;
+
+        &:focus { border-color: rgba(255, 255, 255, 0.28); }
+        &::placeholder { color: #333; }
+        &--error { border-color: variables.$color-btn--active; }
+    }
+
+    &__acciones {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 8px;
+    }
+
+    // ─── Mensajes de feedback ────────────────────────────
+    &__msg {
+        font-size: 13px;
+        padding: 10px 14px;
+        border-radius: 7px;
+        display: none;
+
+        &--ok {
+            display: block;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.25);
+            color: #4ade80;
+        }
+
+        &--error {
+            display: block;
+            background: rgba(199, 23, 23, 0.1);
+            border: 1px solid rgba(199, 23, 23, 0.3);
+            color: #f87171;
+        }
+    }
+
+    // ─── Datos / Exportar ────────────────────────────────
+    &__descripcion {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.7;
+        margin-bottom: 20px;
+    }
+
+    // ─── Zona de peligro ─────────────────────────────────
+    &__peligro-box {
+        background: rgba(199, 23, 23, 0.06);
+        border: 1px solid rgba(199, 23, 23, 0.2);
+        border-radius: 10px;
+        padding: 24px;
+    }
+
+    &__peligro-titulo {
+        font-size: 13px;
+        font-weight: 700;
+        color: #f87171;
+        margin-bottom: 8px;
+    }
+
+    &__peligro-texto {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+}
+
+// ─── Modal de confirmación ────────────────────────────────
+.modal-confirm {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    background: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+
+    &--visible { display: flex; }
+
+    &__panel {
+        background: #1c1c21;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 32px;
+        max-width: 420px;
+        width: 90%;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    }
+
+    &__titulo {
+        font-size: 18px;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 10px;
+    }
+
+    &__texto {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.65;
+        margin-bottom: 24px;
+    }
+
+    &__campo {
+        margin-bottom: 20px;
+    }
+
+    &__label {
+        font-size: 12px;
+        font-weight: 600;
+        color: #888;
+        display: block;
+        margin-bottom: 7px;
+    }
+
+    &__input {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        padding: 11px 14px;
+        color: #fff;
+        font-family: variables.$fuente-primaria;
+        font-size: 14px;
+        outline: none;
+        transition: border-color 0.2s;
+
+        &:focus { border-color: rgba(255, 255, 255, 0.25); }
+    }
+
+    &__acciones {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+    }
+
+    &__msg {
+        font-size: 12px;
+        color: #f87171;
+        margin-bottom: 14px;
+        display: none;
+
+        &--visible { display: block; }
+    }
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+			rel="stylesheet"
+		/>
+		<script src="./public/login-bundle.js" defer></script>
+		<link rel="stylesheet" href="./public/bundle.css" />
+		<title>Crear Cuenta</title>
+	</head>
+	<body>
+		<div class="bg-peliculas">
+			<div class="bg-fila">
+				<div class="bg-track bg-track--izq" id="fila-1"></div>
+			</div>
+			<div class="bg-fila">
+				<div class="bg-track bg-track--der" id="fila-2"></div>
+			</div>
+			<div class="bg-fila">
+				<div class="bg-track bg-track--izq" id="fila-3"></div>
+			</div>
+			<div class="bg-overlay"></div>
+		</div>
+
+		<div class="auth">
+
+			<!-- Card Login -->
+			<div class="auth__card auth__card--oculto" id="card-login">
+				<div class="auth__logo">
+					<img src="./img/logo.png" alt="Logo" class="auth__logo-imagen" />
+				</div>
+				<h1 class="auth__titulo">Iniciar Sesión</h1>
+				<p class="auth__error" id="error-login"></p>
+				<form class="auth__form" id="form-login">
+					<div class="auth__grupo">
+						<label class="auth__label" for="login-email">Email</label>
+						<input class="auth__input" type="email" id="login-email" placeholder="tucorreo@email.com" required />
+					</div>
+					<div class="auth__grupo">
+						<label class="auth__label" for="login-password">Contraseña</label>
+						<input class="auth__input" type="password" id="login-password" placeholder="••••••••" required />
+					</div>
+					<button type="submit" class="btn btn--rojo btn--100">Iniciar Sesión</button>
+				</form>
+				<p class="auth__link">
+					¿No tienes cuenta?
+					<a href="#" id="ir-register">Regístrate aquí</a>
+				</p>
+			</div>
+
+			<!-- Card Register -->
+			<div class="auth__card" id="card-register">
+				<div class="auth__logo">
+					<img src="./img/logo.png" alt="Logo" class="auth__logo-imagen" />
+				</div>
+				<h1 class="auth__titulo">Crear Cuenta</h1>
+				<p class="auth__error" id="error-register"></p>
+				<form class="auth__form" id="form-register">
+					<div class="auth__grupo">
+						<label class="auth__label" for="register-nombre">Nombre</label>
+						<input class="auth__input" type="text" id="register-nombre" placeholder="Tu nombre" required />
+					</div>
+					<div class="auth__grupo">
+						<label class="auth__label" for="register-email">Email</label>
+						<input class="auth__input" type="email" id="register-email" placeholder="tucorreo@email.com" required />
+					</div>
+					<div class="auth__grupo">
+						<label class="auth__label" for="register-password">Contraseña</label>
+						<input class="auth__input" type="password" id="register-password" placeholder="••••••••" required />
+					</div>
+					<div class="auth__grupo">
+						<label class="auth__label" for="register-confirmar">Confirmar Contraseña</label>
+						<input class="auth__input" type="password" id="register-confirmar" placeholder="••••••••" required />
+					</div>
+					<button type="submit" class="btn btn--rojo btn--100">Crear Cuenta</button>
+				</form>
+				<p class="auth__link">
+					¿Ya tienes cuenta?
+					<a href="#" id="ir-login">Inicia sesión aquí</a>
+				</p>
+			</div>
+
+		</div>
+	</body>
+</html>

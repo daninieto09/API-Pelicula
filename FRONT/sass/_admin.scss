@@ -1,0 +1,188 @@
+@use 'variables';
+
+.admin {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 48px 32px 100px;
+
+    @media (max-width: 600px) { padding: 32px 16px 80px; }
+
+    // ─── Cabecera ───────────────────────────────────────
+    &__cabecera {
+        margin-bottom: 48px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        padding-bottom: 24px;
+    }
+
+    &__eyebrow {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: #444;
+        margin-bottom: 6px;
+    }
+
+    &__titulo {
+        font-size: 26px;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: -0.3px;
+    }
+
+    // ─── Secciones ──────────────────────────────────────
+    &__seccion {
+        padding: 36px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+        &:last-child { border-bottom: none; }
+    }
+
+    &__seccion-titulo {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #444;
+        margin-bottom: 24px;
+    }
+
+    // ─── Tarjetas de estadísticas ────────────────────────
+    &__stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+
+        @media (max-width: 700px) { grid-template-columns: repeat(2, 1fr); }
+        @media (max-width: 400px) { grid-template-columns: 1fr; }
+    }
+
+    &__stat-card {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    &__stat-num {
+        display: block;
+        font-size: 32px;
+        font-weight: 700;
+        color: #fff;
+        line-height: 1;
+        margin-bottom: 6px;
+    }
+
+    &__stat-label {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: #555;
+    }
+
+    // ─── Tabla de usuarios ───────────────────────────────
+    &__tabla-wrap {
+        overflow-x: auto;
+    }
+
+    &__tabla {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13px;
+
+        th, td {
+            padding: 11px 14px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        th {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #444;
+        }
+
+        td { color: #ccc; }
+
+        tr:last-child td { border-bottom: none; }
+
+        tr:hover td { background: rgba(255, 255, 255, 0.02); }
+    }
+
+    // ─── Badges de estado ────────────────────────────────
+    &__badge {
+        display: inline-block;
+        padding: 3px 9px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 600;
+
+        &--activo {
+            background: rgba(34, 197, 94, 0.12);
+            color: #4ade80;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+
+        &--inactivo {
+            background: rgba(199, 23, 23, 0.1);
+            color: #f87171;
+            border: 1px solid rgba(199, 23, 23, 0.2);
+        }
+
+        &--admin {
+            background: rgba(234, 179, 8, 0.1);
+            color: #facc15;
+            border: 1px solid rgba(234, 179, 8, 0.2);
+        }
+    }
+
+    // ─── Botones de fila ─────────────────────────────────
+    &__fila-acciones {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+    }
+
+    &__btn-fila {
+        padding: 4px 10px;
+        border-radius: 5px;
+        font-size: 11px;
+        font-weight: 600;
+        border: 1px solid transparent;
+        cursor: pointer;
+        font-family: variables.$fuente-primaria;
+        transition: opacity 0.15s;
+
+        &:hover { opacity: 0.8; }
+
+        &--activar {
+            background: rgba(34, 197, 94, 0.12);
+            color: #4ade80;
+            border-color: rgba(34, 197, 94, 0.2);
+        }
+
+        &--desactivar {
+            background: rgba(234, 179, 8, 0.1);
+            color: #facc15;
+            border-color: rgba(234, 179, 8, 0.2);
+        }
+
+        &--eliminar {
+            background: rgba(199, 23, 23, 0.1);
+            color: #f87171;
+            border-color: rgba(199, 23, 23, 0.2);
+        }
+    }
+
+    // ─── Mensaje vacío / carga ───────────────────────────
+    &__vacio {
+        text-align: center;
+        color: #555;
+        font-size: 13px;
+        padding: 32px 0;
+    }
+}

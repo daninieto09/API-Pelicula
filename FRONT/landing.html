@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+		<script src="./public/landing-bundle.js" defer></script>
+		<link rel="stylesheet" href="./public/bundle.css" />
+		<title>CineTrack — Tu diario de cine</title>
+	</head>
+	<body>
+
+		<nav class="nav-app">
+			<div class="nav-app__izq">
+				<a href="./landing.html" class="nav-app__logo-wrap">
+					<img src="./img/logo.png" alt="Logo" class="nav-app__logo" />
+				</a>
+				<ul class="nav-app__links">
+					<li><a href="./peliculas.html" class="nav-app__link">Películas</a></li>
+					<li><a href="./listas.html" class="nav-app__link">Listas</a></li>
+					<li><a href="./miembros.html" class="nav-app__link">Miembros</a></li>
+				</ul>
+			</div>
+			<div class="nav-app__der" id="nav-auth"></div>
+		</nav>
+
+		<!-- HERO CON SLIDER -->
+		<section class="landing__hero">
+			<div class="landing__hero-slider">
+				<div class="landing__hero-slide landing__hero-slide--active"></div>
+				<div class="landing__hero-slide"></div>
+				<div class="landing__hero-slide"></div>
+				<div class="landing__hero-overlay"></div>
+			</div>
+
+			<div class="landing__hero-content">
+				<p class="landing__hero-eyebrow">Red social de cine y series</p>
+				<h1 class="landing__hero-tagline">
+					Tu diario cinematográfico.<br />
+					Comparte lo que ves.
+				</h1>
+				<p class="landing__hero-sub">
+					Registra cada película y serie que ves, escribe reseñas,
+					crea listas y descubre qué están viendo otros.
+					Todo en un solo lugar, gratis.
+				</p>
+				<div class="landing__hero-cta">
+					<a href="./register.html" class="btn btn--rojo">Crear cuenta</a>
+					<a href="./login.html" class="btn">Iniciar Sesión</a>
+				</div>
+			</div>
+
+			<div class="landing__hero-dots">
+				<button class="landing__hero-dot landing__hero-dot--active" data-slide="0" aria-label="Slide 1"></button>
+				<button class="landing__hero-dot" data-slide="1" aria-label="Slide 2"></button>
+				<button class="landing__hero-dot" data-slide="2" aria-label="Slide 3"></button>
+			</div>
+		</section>
+
+		<!-- POPULAR AHORA -->
+		<section class="landing__seccion">
+			<p class="landing__seccion-titulo">Popular ahora</p>
+			<div class="landing__grid-posters" id="preview-grid"></div>
+		</section>
+
+		<!-- ¿QUÉ PUEDES HACER? -->
+		<section class="landing__features-wrap">
+			<p class="landing__features-titulo">¿Qué puedes hacer?</p>
+			<div class="landing__features">
+				<a href="./feature-resenas.html" class="landing__feature" data-feature="resenas">
+					<span class="landing__feature-icono">★</span>
+					<h3 class="landing__feature-titulo">Reseñas</h3>
+					<p class="landing__feature-texto">Califica del 1 al 10 y escribe tu opinión sobre cada título.</p>
+					<span class="landing__feature-arrow">→</span>
+				</a>
+				<a href="./feature-favoritos.html" class="landing__feature" data-feature="favoritos">
+					<span class="landing__feature-icono">♥</span>
+					<h3 class="landing__feature-titulo">Favoritos</h3>
+					<p class="landing__feature-texto">Guarda tus películas y series favoritas para encontrarlas fácil.</p>
+					<span class="landing__feature-arrow">→</span>
+				</a>
+				<a href="./feature-listas.html" class="landing__feature" data-feature="listas">
+					<span class="landing__feature-icono">≡</span>
+					<h3 class="landing__feature-titulo">Listas</h3>
+					<p class="landing__feature-texto">Organiza lo que quieres ver en listas temáticas.</p>
+					<span class="landing__feature-arrow">→</span>
+				</a>
+				<a href="./feature-historial.html" class="landing__feature" data-feature="historial">
+					<span class="landing__feature-icono">◷</span>
+					<h3 class="landing__feature-titulo">Historial</h3>
+					<p class="landing__feature-texto">Lleva el registro de todo lo que has visto.</p>
+					<span class="landing__feature-arrow">→</span>
+				</a>
+			</div>
+		</section>
+
+		<div class="landing__footer-cta">
+			<div>
+				<p>Únete a la comunidad.</p>
+				<span>Gratis. Sin tarjeta de crédito.</span>
+			</div>
+			<a href="./register.html" class="btn btn--rojo">Crear cuenta</a>
+		</div>
+
+		<script>
+			(function () {
+				var slides = document.querySelectorAll('.landing__hero-slide');
+				var dots = document.querySelectorAll('.landing__hero-dot');
+				var current = 0;
+
+				function goTo(index) {
+					slides[current].classList.remove('landing__hero-slide--active');
+					dots[current].classList.remove('landing__hero-dot--active');
+					current = index;
+					slides[current].classList.add('landing__hero-slide--active');
+					dots[current].classList.add('landing__hero-dot--active');
+				}
+
+				function next() {
+					goTo((current + 1) % slides.length);
+				}
+
+				var timer = setInterval(next, 6000);
+
+				dots.forEach(function (dot, i) {
+					dot.addEventListener('click', function () {
+						clearInterval(timer);
+						goTo(i);
+						timer = setInterval(next, 6000);
+					});
+				});
+			})();
+		</script>
+
+	</body>
+</html>

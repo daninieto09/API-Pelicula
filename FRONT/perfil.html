@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
+		<script src="./public/perfil-bundle.js" defer></script>
+		<link rel="stylesheet" href="./public/bundle.css" />
+		<title>Mi Perfil</title>
+	</head>
+	<body>
+		<nav class="nav-app">
+			<div class="nav-app__izq">
+				<a href="./index.html" class="nav-app__logo-wrap">
+					<img src="./img/logo.png" alt="Logo" class="nav-app__logo" />
+				</a>
+				<ul class="nav-app__links">
+					<li><a href="./index.html" class="nav-app__link">Inicio</a></li>
+					<li><a href="./peliculas.html" class="nav-app__link">Películas</a></li>
+					<li><a href="./listas.html" class="nav-app__link">Listas</a></li>
+					<li><a href="./miembros.html" class="nav-app__link">Miembros</a></li>
+				</ul>
+			</div>
+			<div class="nav-app__der" id="nav-auth"></div>
+		</nav>
+
+		<main class="perfil">
+			<div class="perfil__header">
+				<div class="perfil__avatar" id="perfil-avatar"></div>
+				<div class="perfil__header-info">
+					<div class="perfil__nombre-row">
+						<h1 class="perfil__info-nombre" id="perfil-nombre"></h1>
+						<span class="perfil__badge-admin" id="badge-admin" style="display:none">Admin</span>
+					</div>
+					<p class="perfil__info-email" id="perfil-email"></p>
+					<a href="./admin.html" class="perfil__admin-link" id="admin-link" style="display:none">
+						Ir al panel de administración →
+					</a>
+				</div>
+			</div>
+
+			<div class="perfil__stats">
+				<div class="perfil__stat">
+					<div class="perfil__stat-numero" id="stat-favoritos">—</div>
+					<div class="perfil__stat-label">Favoritos</div>
+				</div>
+				<div class="perfil__stat">
+					<div class="perfil__stat-numero" id="stat-resenas">—</div>
+					<div class="perfil__stat-label">Reseñas</div>
+				</div>
+				<div class="perfil__stat">
+					<div class="perfil__stat-numero" id="stat-listas">—</div>
+					<div class="perfil__stat-label">Listas</div>
+				</div>
+				<div class="perfil__stat">
+					<div class="perfil__stat-numero" id="stat-historial">—</div>
+					<div class="perfil__stat-label">Vistos</div>
+				</div>
+			</div>
+
+			<div class="perfil__tabs" id="perfil-tabs">
+				<button class="perfil__tab perfil__tab--activo" data-tab="favoritos">Favoritos</button>
+				<button class="perfil__tab" data-tab="resenas">Reseñas</button>
+				<button class="perfil__tab" data-tab="listas">Listas</button>
+				<button class="perfil__tab" data-tab="historial">Historial</button>
+			</div>
+
+			<div class="perfil__seccion perfil__seccion--activo" id="sec-favoritos"></div>
+			<div class="perfil__seccion" id="sec-resenas"></div>
+			<div class="perfil__seccion" id="sec-listas"></div>
+			<div class="perfil__seccion" id="sec-historial"></div>
+		</main>
+	</body>
+</html>

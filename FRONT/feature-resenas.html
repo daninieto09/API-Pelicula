@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="./public/bundle.css" />
+		<title>Reseñas — CineTrack</title>
+	</head>
+	<body>
+
+		<nav class="nav-app">
+			<div class="nav-app__izq">
+				<a href="./index.html" class="nav-app__logo-wrap">
+					<img src="./img/logo.png" alt="Logo" class="nav-app__logo" />
+				</a>
+				<ul class="nav-app__links">
+					<li><a href="./landing.html" class="nav-app__link">Inicio</a></li>
+					<li><a href="./peliculas.html" class="nav-app__link">Películas</a></li>
+					<li><a href="./listas.html" class="nav-app__link">Listas</a></li>
+					<li><a href="./miembros.html" class="nav-app__link">Miembros</a></li>
+				</ul>
+			</div>
+			<div class="nav-app__der">
+				<a href="./login.html" class="btn">Iniciar Sesión</a>
+				<a href="./register.html" class="btn btn--rojo">Crear Cuenta</a>
+			</div>
+		</nav>
+
+		<div class="feature-breadcrumb">
+			<a href="./landing.html">← Volver al inicio</a>
+		</div>
+
+		<!-- HERO -->
+		<section class="feature-hero">
+			<div class="feature-hero__grid">
+				<div>
+					<span class="feature-hero__tag">Comparte Tu Opinión</span>
+					<h1 class="feature-hero__title">Escribe Reseñas Memorables</h1>
+					<p class="feature-hero__desc">
+						Tu perspectiva importa. En CineTrack puedes escribir reseñas detalladas,
+						calificar cada título y compartir tu análisis con una comunidad apasionada por el cine.
+						Sin límites, sin restricciones — solo tu voz honesta.
+					</p>
+					<div class="feature-hero__actions">
+						<a href="./register.html" class="btn btn--rojo">Comenzar Ahora</a>
+						<a href="./login.html" class="btn">Iniciar Sesión</a>
+					</div>
+				</div>
+				<div class="feature-hero__visual">
+					<div class="feature-icon-card">
+						<span class="feature-icon-card__icon feature-icon-card__icon--pulse">⭐</span>
+						<h3 class="feature-icon-card__title">Tu crítica, tu voz</h3>
+						<p class="feature-icon-card__desc">Sin límite de caracteres. Sin restricciones. Solo tu opinión honesta sobre el cine que amas.</p>
+						<span class="feature-icon-card__badge">Comunidad de críticos</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CARRUSEL DINÁMICO — RESEÑAS -->
+		<section class="feature-carousel-section">
+			<div class="feature-carousel-section__text">
+				<p class="feature-section-label">Más populares ahora</p>
+				<h2 class="feature-section-title">Películas esperando tu reseña</h2>
+				<p class="feature-carousel-section__desc">
+					Califica del 1 al 10, escribe tu análisis y comparte tu opinión con
+					la comunidad. Cada título que ves merece una reseña honesta.
+					Los datos vienen directamente de TMDB en tiempo real.
+				</p>
+				<a href="./register.html" class="btn btn--rojo feature-carousel-section__cta">Empezar a reseñar</a>
+			</div>
+			<div class="fcarousel">
+				<div class="fcarousel__track" id="fcarousel-track">
+					<p class="fcarousel__loading">Cargando...</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- EJEMPLOS DE RESEÑAS -->
+		<section class="feature-examples">
+			<p class="feature-section-label">De la comunidad</p>
+			<h2 class="feature-section-title">Reseñas destacadas</h2>
+			<div class="feature-examples__grid">
+
+				<div class="feature-review-card">
+					<div class="feature-review-card__top">
+						<div class="feature-review-card__poster">
+							<img src="https://image.tmdb.org/t/p/w300/t6HIqrRAclMPA5NTYrIDshwkB1K.jpg" alt="The Brutalist" loading="lazy" />
+						</div>
+						<div class="feature-review-card__meta">
+							<p class="feature-review-card__movie-title">The Brutalist</p>
+							<div class="feature-review-card__rating">
+								<span class="stars">★★★★★</span>
+								<span class="score">9.5/10</span>
+							</div>
+							<p class="feature-review-card__date">12 de enero, 2025</p>
+						</div>
+					</div>
+					<p class="feature-review-card__text">
+						Brady Corbet entrega una obra monumental. La arquitectura como metáfora del inmigrante
+						que construye su identidad en tierra ajena es simplemente impecable. Tres horas y media
+						que pasan en un suspiro.
+					</p>
+					<div class="feature-review-card__actions">
+						<button class="feature-review-card__action-btn">♥ Me gusta (48)</button>
+						<button class="feature-review-card__action-btn">💬 Comentar</button>
+					</div>
+				</div>
+
+				<div class="feature-review-card">
+					<div class="feature-review-card__top">
+						<div class="feature-review-card__poster">
+							<img src="https://image.tmdb.org/t/p/w300/kDp1vKMwitKoHHJNaklIB2ypoHZ.jpg" alt="Inside Out 2" loading="lazy" />
+						</div>
+						<div class="feature-review-card__meta">
+							<p class="feature-review-card__movie-title">Inside Out 2</p>
+							<div class="feature-review-card__rating">
+								<span class="stars">★★★★☆</span>
+								<span class="score">8.5/10</span>
+							</div>
+							<p class="feature-review-card__date">18 de junio, 2024</p>
+						</div>
+					</div>
+					<p class="feature-review-card__text">
+						Pixar vuelve a hacer lo que mejor sabe: hacerte llorar mientras ríes. La ansiedad como
+						nueva emoción central es un acierto narrativo brillante. Perfecta para ver con toda
+						la familia.
+					</p>
+					<div class="feature-review-card__actions">
+						<button class="feature-review-card__action-btn">♥ Me gusta (73)</button>
+						<button class="feature-review-card__action-btn">💬 Comentar</button>
+					</div>
+				</div>
+
+				<div class="feature-review-card">
+					<div class="feature-review-card__top">
+						<div class="feature-review-card__poster">
+							<img src="https://image.tmdb.org/t/p/w300/4ynQjHkYW1sNKKEX5xf2vvMWvVu.jpg" alt="Deadpool & Wolverine" loading="lazy" />
+						</div>
+						<div class="feature-review-card__meta">
+							<p class="feature-review-card__movie-title">Deadpool &amp; Wolverine</p>
+							<div class="feature-review-card__rating">
+								<span class="stars">★★★★☆</span>
+								<span class="score">8/10</span>
+							</div>
+							<p class="feature-review-card__date">30 de julio, 2024</p>
+						</div>
+					</div>
+					<p class="feature-review-card__text">
+						Ryan Reynolds y Hugh Jackman tienen una química eléctrica. El fan service es excesivo
+						pero funciona a la perfección. Si eres del MCU, es absolutamente imprescindible.
+					</p>
+					<div class="feature-review-card__actions">
+						<button class="feature-review-card__action-btn">♥ Me gusta (61)</button>
+						<button class="feature-review-card__action-btn">💬 Comentar</button>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<!-- CTA -->
+		<section class="feature-cta">
+			<h2 class="feature-cta__title">¿Listo Para Compartir Tus Críticas?</h2>
+			<p class="feature-cta__desc">
+				Únete a miles de cinéfilos que ya comparten sus opiniones en CineTrack.
+				Tu primera reseña está a un clic de distancia.
+			</p>
+			<div class="feature-cta__actions">
+				<a href="./register.html" class="btn btn--rojo">Crear Cuenta Gratis</a>
+				<a href="./landing.html" class="btn">Aprender Más</a>
+			</div>
+		</section>
+
+		<footer class="feature-footer">
+			<div class="feature-footer__inner">
+				<a href="./landing.html" class="feature-footer__brand">CineTrack</a>
+				<p class="feature-footer__more">
+					Descubre más:
+					<a href="./feature-resenas.html">Reseñas</a> ·
+					<a href="./feature-favoritos.html">Favoritos</a> ·
+					<a href="./feature-listas.html">Listas</a> ·
+					<a href="./feature-historial.html">Historial</a>
+				</p>
+			</div>
+		</footer>
+
+	<script>
+		(function () {
+			var KEY = 'f7d9053e72bae73157a14fd0ad07e437';
+			var TMDB = 'https://api.themoviedb.org/3';
+			var IMG = 'https://image.tmdb.org/t/p/w185/';
+			var ITEM_H = 90;
+
+			function stars(v) {
+				var n = Math.min(5, Math.round(v / 2));
+				return '★'.repeat(n) + '☆'.repeat(5 - n);
+			}
+
+			function scroll(track, count) {
+				var max = Math.max(0, count - 3);
+				var cur = 0;
+				setInterval(function () {
+					if (cur >= max) {
+						track.style.transition = 'none';
+						track.style.transform = 'translateY(0)';
+						cur = 0;
+						requestAnimationFrame(function () { requestAnimationFrame(function () { track.style.transition = 'transform 0.65s cubic-bezier(0.4,0,0.2,1)'; }); });
+					} else {
+						cur++;
+						track.style.transform = 'translateY(-' + (cur * ITEM_H) + 'px)';
+					}
+				}, 2800);
+			}
+
+			var track = document.getElementById('fcarousel-track');
+			if (!track) return;
+
+			fetch(TMDB + '/movie/popular?api_key=' + KEY + '&language=es-ES')
+				.then(function (r) { return r.json(); })
+				.then(function (d) {
+					var items = (d.results || []).filter(function (m) { return m.poster_path; }).slice(0, 9);
+					if (!items.length) { track.innerHTML = '<p class="fcarousel__loading">Sin datos</p>'; return; }
+					track.innerHTML = items.map(function (m) {
+						var rating = m.vote_average ? m.vote_average.toFixed(1) : '?';
+						var badge = (m.vote_average ? stars(m.vote_average) : '') + ' ' + rating + '/10';
+						var overview = (m.overview || 'Sin descripción.').substring(0, 110);
+						return '<div class="fcarousel__item">' +
+							'<img src="' + IMG + m.poster_path + '" alt="" loading="lazy" />' +
+							'<div class="fcarousel__meta">' +
+							'<span class="fcarousel__badge">' + badge + '</span>' +
+							'<p class="fcarousel__title">' + m.title + '</p>' +
+							'<p class="fcarousel__sub">' + overview + '…</p>' +
+							'</div></div>';
+					}).join('');
+					scroll(track, items.length);
+				})
+				.catch(function () { track.innerHTML = '<p class="fcarousel__loading">No disponible</p>'; });
+		})();
+	</script>
+
+	</body>
+</html>

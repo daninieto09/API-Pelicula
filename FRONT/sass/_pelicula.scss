@@ -1,0 +1,582 @@
+@use 'variables';
+
+// ─── Backdrop ─────────────────────────────────────────────────────
+.pelicula__backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-size: cover;
+    background-position: center top;
+    filter: blur(2px) brightness(0.18);
+}
+
+// ─── Layout principal ─────────────────────────────────────────────
+.pelicula__layout {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 48px;
+    align-items: start;
+
+    @media (max-width: 860px) {
+        grid-template-columns: 1fr;
+        padding: 24px 20px 60px;
+        gap: 28px;
+    }
+}
+
+// ─── Aside izquierdo ──────────────────────────────────────────────
+.pelicula__aside {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @media (max-width: 860px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 20px;
+    }
+}
+
+.pelicula__poster {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+
+    @media (max-width: 860px) {
+        width: 140px;
+        flex-shrink: 0;
+    }
+}
+
+// ─── Acciones del usuario ─────────────────────────────────────────
+.pelicula__acciones-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pelicula__accion {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: #888;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: variables.$fuente-primaria;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    width: 100%;
+    text-align: left;
+
+    &:hover { color: #fff; background: rgba(255, 255, 255, 0.09); border-color: rgba(255, 255, 255, 0.18); }
+
+    &--activo {
+        color: variables.$color-btn--active;
+        border-color: rgba(199, 23, 23, 0.5);
+        background: rgba(199, 23, 23, 0.08);
+        &:hover { background: rgba(199, 23, 23, 0.14); }
+    }
+
+    svg { flex-shrink: 0; }
+}
+
+// ─── Selector de listas ───────────────────────────────────────────
+.pelicula__listas-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pelicula__select {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: #ccc;
+    padding: 9px 12px;
+    font-family: variables.$fuente-primaria;
+    font-size: 13px;
+    outline: none;
+    cursor: pointer;
+
+    option { background: #1c1c21; }
+}
+
+// ─── Stats columna ────────────────────────────────────────────────
+.pelicula__stats-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.pelicula__stat {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+    &:last-child { border-bottom: none; }
+}
+
+.pelicula__stat-num {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.pelicula__stat-label {
+    font-size: 11px;
+    color: #555;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+// ─── Columna principal ────────────────────────────────────────────
+.pelicula__main {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+.pelicula__header { display: flex; flex-direction: column; gap: 8px; }
+
+.pelicula__titulo-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.pelicula__titulo {
+    font-size: clamp(22px, 3vw, 34px);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+.pelicula__anio {
+    font-size: 18px;
+    color: #555;
+    font-weight: 400;
+    flex-shrink: 0;
+}
+
+.pelicula__generos {
+    font-size: 13px;
+    color: #777;
+}
+
+.pelicula__duracion {
+    font-size: 12px;
+    color: #555;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.pelicula__prom-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.pelicula__prom-stars { font-size: 16px; color: #f5c518; letter-spacing: 1px; }
+.pelicula__prom { font-size: 15px; font-weight: 700; color: #fff; }
+.pelicula__prom-label { font-size: 11px; color: #555; text-transform: uppercase; letter-spacing: 1px; }
+
+.pelicula__overview {
+    font-size: 14px;
+    color: #999;
+    line-height: 1.75;
+    max-width: 680px;
+}
+
+// ─── Sección título ───────────────────────────────────────────────
+.pelicula__seccion-titulo {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 18px;
+}
+
+// ─── Formulario de reseña ─────────────────────────────────────────
+.pelicula__form-wrap {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 8px;
+    padding: 28px 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @media (max-width: 600px) { padding: 20px 16px; }
+}
+
+// Rating dots (1-10)
+.pelicula__rating-wrap {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.pelicula__rating-row {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.pelicula__dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #666;
+    font-size: 11px;
+    font-weight: 700;
+    font-family: variables.$fuente-primaria;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+
+    &:hover,
+    &--hover { background: rgba(199, 23, 23, 0.3); border-color: rgba(199, 23, 23, 0.6); color: #fff; }
+
+    &--activo {
+        background: variables.$color-btn--active;
+        border-color: variables.$color-btn--active;
+        color: #fff;
+    }
+}
+
+.pelicula__rating-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #666;
+    min-width: 70px;
+}
+
+.pelicula__textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: #ddd;
+    font-family: variables.$fuente-primaria;
+    font-size: 14px;
+    line-height: 1.65;
+    padding: 14px 16px;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.2s;
+
+    &:focus { border-color: rgba(199, 23, 23, 0.5); }
+    &::placeholder { color: #444; }
+}
+
+.pelicula__form-msg {
+    font-size: 13px;
+    font-weight: 600;
+    min-height: 18px;
+
+    &--ok { color: #4caf50; }
+    &--error { color: variables.$color-btn--active; }
+}
+
+.pelicula__form-acciones {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+// ─── Reseñas comunidad ────────────────────────────────────────────
+.pelicula__resenas-seccion { display: flex; flex-direction: column; }
+
+.pelicula__resena-card {
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 8px;
+    padding: 20px 22px;
+    margin-bottom: 12px;
+    transition: border-color 0.2s;
+
+    &:hover { border-color: rgba(255, 255, 255, 0.12); }
+
+    &--mia {
+        border-color: rgba(199, 23, 23, 0.3);
+        background: rgba(199, 23, 23, 0.04);
+    }
+}
+
+.pelicula__resena-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.pelicula__resena-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: variables.$color-btn--active;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.pelicula__resena-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+}
+
+.pelicula__resena-autor {
+    font-size: 13px;
+    font-weight: 700;
+    color: #ddd;
+}
+
+.pelicula__resena-fecha {
+    font-size: 11px;
+    color: #555;
+}
+
+.pelicula__resena-stars {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #f5c518;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.pelicula__resena-num {
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.pelicula__resena-texto {
+    font-size: 14px;
+    color: #888;
+    line-height: 1.7;
+}
+
+// ─── Varios ───────────────────────────────────────────────────────
+.pelicula__vacio {
+    font-size: 13px;
+    color: #444;
+    padding: 24px 0;
+
+    a { color: variables.$color-btn--active; &:hover { text-decoration: underline; } }
+}
+
+.pelicula__login-hint {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.6;
+
+    a { color: variables.$color-btn--active; &:hover { text-decoration: underline; } }
+}
+
+// ─── Fila autor + botón seguir ────────────────────────────────────
+
+.pelicula__resena-autor-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.pelicula__btn-seguir {
+    font-size: 11px;
+    font-weight: 600;
+    font-family: variables.$fuente-primaria;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: transparent;
+    color: #888;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+    white-space: nowrap;
+    line-height: 1.6;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.07);
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    &--siguiendo {
+        background: rgba(199, 23, 23, 0.1);
+        color: variables.$color-btn--active;
+        border-color: rgba(199, 23, 23, 0.35);
+
+        &:hover { background: rgba(199, 23, 23, 0.18); }
+    }
+
+    &:disabled { opacity: 0.5; cursor: wait; }
+}
+
+// ─── Sección de comentarios de una reseña ────────────────────────
+
+.pelicula__comentarios {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pelicula__comentarios-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.pelicula__comentario {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.pelicula__comentario-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: variables.$color-btn;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    color: #999;
+    flex-shrink: 0;
+}
+
+.pelicula__comentario-cuerpo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.pelicula__comentario-autor {
+    font-size: 12px;
+    font-weight: 700;
+    color: #ccc;
+}
+
+.pelicula__comentario-texto {
+    font-size: 13px;
+    color: #777;
+    line-height: 1.55;
+}
+
+// ─── Formulario de comentario ─────────────────────────────────────
+
+.pelicula__comentario-form {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-top: 6px;
+}
+
+.pelicula__comentario-input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    color: #ddd;
+    font-family: variables.$fuente-primaria;
+    font-size: 13px;
+    padding: 7px 14px;
+    outline: none;
+    transition: border-color 0.2s;
+
+    &:focus { border-color: rgba(255, 255, 255, 0.18); }
+    &::placeholder { color: #3a3a3a; }
+}
+
+.pelicula__comentario-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    color: #888;
+    font-family: variables.$fuente-primaria;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 7px 14px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s, color 0.15s;
+
+    &:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
+    &:disabled { opacity: 0.5; cursor: wait; }
+}
+
+.pelicula__comentario-msg {
+    font-size: 12px;
+    font-weight: 600;
+    min-height: 16px;
+    margin-top: 4px;
+
+    &--ok { color: #4caf50; }
+    &--error { color: variables.$color-btn--active; }
+}
+
+// ─── Botón like en reseñas ────────────────────────────────────────
+.pelicula__resena-actions-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.pelicula__resena-btn-like {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #555;
+    transition: color 0.2s;
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-family: variables.$fuente-primaria;
+
+    &:hover:not(:disabled) { color: #f87171; }
+    &--activo { color: #f87171; }
+    &:disabled { cursor: default; opacity: 0.6; }
+}
+
+.pelicula__resena-like-count {
+    font-size: 12px;
+    font-weight: 600;
+    min-width: 12px;
+}

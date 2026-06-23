@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" defer></script>
+		<script src="./public/dashboard-bundle.js" defer></script>
+		<link rel="stylesheet" href="./public/bundle.css" />
+		<title>Dashboard — CineTrack</title>
+	</head>
+	<body>
+
+		<nav class="nav-app">
+			<div class="nav-app__izq">
+				<a href="./index.html" class="nav-app__logo-wrap">
+					<img src="./img/logo.png" alt="Logo" class="nav-app__logo" />
+				</a>
+				<ul class="nav-app__links">
+					<li><a href="./index.html" class="nav-app__link">Inicio</a></li>
+					<li><a href="./peliculas.html" class="nav-app__link">Películas</a></li>
+					<li><a href="./listas.html" class="nav-app__link">Listas</a></li>
+					<li><a href="./miembros.html" class="nav-app__link">Miembros</a></li>
+				</ul>
+			</div>
+			<div class="nav-app__der" id="nav-auth"></div>
+		</nav>
+
+		<main class="dashboard">
+
+			<header class="dashboard__header">
+				<h1 class="dashboard__titulo">Mi Dashboard</h1>
+				<p class="dashboard__subtitulo" id="dash-subtitulo"></p>
+			</header>
+
+			<!-- Tarjetas de resumen -->
+			<section class="dashboard__resumen">
+				<div class="dashboard__card">
+					<span class="dashboard__card-num" id="dash-peliculas">—</span>
+					<span class="dashboard__card-label">Películas vistas</span>
+				</div>
+				<div class="dashboard__card">
+					<span class="dashboard__card-num" id="dash-series">—</span>
+					<span class="dashboard__card-label">Series vistas</span>
+				</div>
+				<div class="dashboard__card">
+					<span class="dashboard__card-num" id="dash-resenas">—</span>
+					<span class="dashboard__card-label">Reseñas escritas</span>
+				</div>
+				<div class="dashboard__card">
+					<span class="dashboard__card-num" id="dash-favoritos">—</span>
+					<span class="dashboard__card-label">Favoritos</span>
+				</div>
+				<div class="dashboard__card">
+					<span class="dashboard__card-num" id="dash-promedio">—</span>
+					<span class="dashboard__card-label">Calificación media</span>
+				</div>
+			</section>
+
+			<!-- Gráficos -->
+			<div class="dashboard__graficos" id="dash-graficos">
+
+				<!-- Géneros más consumidos (dona) -->
+				<section class="dashboard__chart-wrap">
+					<p class="dashboard__seccion-titulo">Géneros más consumidos</p>
+					<div class="dashboard__chart-container dashboard__chart-container--dona">
+						<canvas id="chart-generos"></canvas>
+					</div>
+					<p class="dashboard__chart-vacio" id="vacio-generos" style="display:none">Sin historial suficiente.</p>
+				</section>
+
+				<!-- Actividad por mes (línea) -->
+				<section class="dashboard__chart-wrap">
+					<p class="dashboard__seccion-titulo">Actividad por mes</p>
+					<div class="dashboard__chart-container">
+						<canvas id="chart-actividad"></canvas>
+					</div>
+					<p class="dashboard__chart-vacio" id="vacio-actividad" style="display:none">Sin actividad registrada.</p>
+				</section>
+
+				<!-- Correlación géneros / calificaciones (barras horizontales) -->
+				<section class="dashboard__chart-wrap dashboard__chart-wrap--full">
+					<p class="dashboard__seccion-titulo">Calificación promedio por género</p>
+					<div class="dashboard__chart-container">
+						<canvas id="chart-correlacion"></canvas>
+					</div>
+					<p class="dashboard__chart-vacio" id="vacio-correlacion" style="display:none">Sin reseñas suficientes.</p>
+				</section>
+
+			</div>
+		</main>
+
+	</body>
+</html>

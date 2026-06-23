@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+		<script src="./public/config-bundle.js" defer></script>
+		<link rel="stylesheet" href="./public/bundle.css" />
+		<title>Configuración — CineTrack</title>
+	</head>
+	<body>
+		<nav class="nav-app">
+			<div class="nav-app__izq">
+				<a href="./index.html" class="nav-app__logo-wrap">
+					<img src="./img/logo.png" alt="Logo" class="nav-app__logo" />
+				</a>
+				<ul class="nav-app__links">
+					<li><a href="./index.html" class="nav-app__link">Inicio</a></li>
+					<li><a href="./peliculas.html" class="nav-app__link">Películas</a></li>
+					<li><a href="./listas.html" class="nav-app__link">Listas</a></li>
+					<li><a href="./miembros.html" class="nav-app__link">Miembros</a></li>
+				</ul>
+			</div>
+			<div class="nav-app__der" id="nav-auth"></div>
+		</nav>
+
+		<main class="config">
+
+			<div class="config__cabecera">
+				<p class="config__eyebrow">Cuenta</p>
+				<h1 class="config__titulo">Configuración</h1>
+			</div>
+
+			<!-- ─── Información de cuenta ──────────────────── -->
+			<section class="config__seccion">
+				<p class="config__seccion-titulo">Información de cuenta</p>
+				<form class="config__form" id="form-cuenta" novalidate>
+					<div class="config__campo">
+						<label class="config__label" for="input-nombre">Nombre</label>
+						<input class="config__input" id="input-nombre" type="text" autocomplete="name" />
+					</div>
+					<div class="config__campo">
+						<label class="config__label" for="input-email">Email</label>
+						<input class="config__input" id="input-email" type="email" autocomplete="email" />
+					</div>
+					<p class="config__msg" id="msg-cuenta"></p>
+					<div class="config__acciones">
+						<button class="btn btn--rojo" id="btn-guardar-cuenta" type="submit">Guardar cambios</button>
+					</div>
+				</form>
+			</section>
+
+			<!-- ─── Contraseña ────────────────────────────── -->
+			<section class="config__seccion">
+				<p class="config__seccion-titulo">Contraseña</p>
+				<form class="config__form" id="form-password" novalidate>
+					<div class="config__campo">
+						<label class="config__label" for="input-pwd-actual">Contraseña actual</label>
+						<input class="config__input" id="input-pwd-actual" type="password" autocomplete="current-password" />
+					</div>
+					<div class="config__campo">
+						<label class="config__label" for="input-pwd-nueva">Nueva contraseña</label>
+						<input class="config__input" id="input-pwd-nueva" type="password" autocomplete="new-password" />
+					</div>
+					<div class="config__campo">
+						<label class="config__label" for="input-pwd-confirmar">Confirmar contraseña</label>
+						<input class="config__input" id="input-pwd-confirmar" type="password" autocomplete="new-password" />
+					</div>
+					<p class="config__msg" id="msg-password"></p>
+					<div class="config__acciones">
+						<button class="btn btn--rojo" id="btn-cambiar-pwd" type="submit">Cambiar contraseña</button>
+					</div>
+				</form>
+			</section>
+
+			<!-- ─── Mis datos ──────────────────────────────── -->
+			<section class="config__seccion">
+				<p class="config__seccion-titulo">Mis datos</p>
+				<p class="config__descripcion">
+					Descarga un archivo JSON con toda tu actividad en la plataforma: favoritos, reseñas, historial y listas.<br />
+					Este es tu derecho de acceso y portabilidad de datos conforme a la normativa de privacidad vigente (LOPDP).
+				</p>
+				<button class="btn" id="btn-exportar">Exportar mis datos</button>
+			</section>
+
+			<!-- ─── Zona de peligro ────────────────────────── -->
+			<section class="config__seccion">
+				<p class="config__seccion-titulo">Zona de peligro</p>
+				<div class="config__peligro-box">
+					<p class="config__peligro-titulo">Eliminar cuenta</p>
+					<p class="config__peligro-texto">
+						Esta acción eliminará permanentemente tu cuenta y todos tus datos asociados: favoritos, reseñas, historial y listas.
+						No se puede deshacer.
+					</p>
+					<button class="btn btn--rojo" id="btn-abrir-modal">Eliminar mi cuenta</button>
+				</div>
+			</section>
+
+		</main>
+
+		<!-- ─── Modal de confirmación ──────────────────────── -->
+		<div class="modal-confirm" id="modal-eliminar">
+			<div class="modal-confirm__panel">
+				<h2 class="modal-confirm__titulo">¿Eliminar tu cuenta?</h2>
+				<p class="modal-confirm__texto">
+					Esta acción es irreversible. Para confirmar, escribe tu email exactamente como aparece en tu cuenta.
+				</p>
+				<div class="modal-confirm__campo">
+					<label class="modal-confirm__label" for="input-confirm-email">Tu email</label>
+					<input class="modal-confirm__input" id="input-confirm-email" type="email" placeholder="tucorreo@ejemplo.com" />
+				</div>
+				<p class="modal-confirm__msg" id="modal-msg"></p>
+				<div class="modal-confirm__acciones">
+					<button class="btn" id="btn-cancelar-modal">Cancelar</button>
+					<button class="btn btn--rojo" id="btn-confirmar-eliminar">Eliminar mi cuenta</button>
+				</div>
+			</div>
+		</div>
+
+	</body>
+</html>

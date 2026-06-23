@@ -1,0 +1,527 @@
+@use 'variables';
+
+.perfil {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 48px 32px 80px;
+
+    @media (max-width: 600px) { padding: 32px 16px 60px; }
+
+    // ─── Header ────────────────────────────────────────
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        margin-bottom: 48px;
+        padding-bottom: 40px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+        @media (max-width: 600px) { flex-direction: column; align-items: flex-start; gap: 16px; }
+    }
+
+    &__avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: variables.$color-btn--active;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        font-weight: 700;
+        color: #fff;
+        flex-shrink: 0;
+        letter-spacing: -1px;
+    }
+
+    &__header-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    &__nombre-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    &__info-nombre {
+        font-size: 26px;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: -0.5px;
+    }
+
+    &__badge-admin {
+        display: inline-flex;
+        align-items: center;
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: variables.$color-btn--active;
+        border: 1px solid rgba(199, 23, 23, 0.4);
+        border-radius: 4px;
+        padding: 3px 8px;
+        line-height: 1;
+    }
+
+    &__admin-link {
+        display: inline-flex;
+        align-items: center;
+        font-size: 12px;
+        font-weight: 600;
+        color: variables.$color-btn--active;
+        text-decoration: none;
+        margin-top: 10px;
+        transition: opacity 0.2s;
+
+        &:hover { opacity: 0.75; }
+    }
+
+    &__info-email {
+        font-size: 13px;
+        color: #555;
+        margin-top: 5px;
+    }
+
+    // ─── Stats ─────────────────────────────────────────
+    &__stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin-bottom: 48px;
+
+        @media (max-width: 600px) { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    &__stat {
+        background: rgba(255, 255, 255, 0.035);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 10px;
+        padding: 22px 20px;
+        text-align: center;
+        transition: border-color 0.2s;
+
+        &:hover { border-color: rgba(199, 23, 23, 0.35); }
+    }
+
+    &__stat-numero {
+        font-size: 30px;
+        font-weight: 700;
+        color: variables.$color-btn--active;
+        line-height: 1;
+    }
+
+    &__stat-label {
+        font-size: 11px;
+        color: #555;
+        margin-top: 8px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-weight: 600;
+    }
+
+    // ─── Tabs ──────────────────────────────────────────
+    &__tabs {
+        display: flex;
+        gap: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        margin-bottom: 36px;
+        overflow-x: auto;
+    }
+
+    &__tab {
+        padding: 12px 24px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #555;
+        cursor: pointer;
+        border: none;
+        border-bottom: 2px solid transparent;
+        background: none;
+        font-family: variables.$fuente-primaria;
+        transition: color 0.2s, border-color 0.2s;
+        margin-bottom: -1px;
+        white-space: nowrap;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        &--activo {
+            color: #fff;
+            border-bottom-color: variables.$color-btn--active;
+        }
+
+        &:hover:not(&--activo) { color: #aaa; }
+    }
+
+    &__seccion {
+        display: none;
+        &--activo { display: block; }
+    }
+
+    // ─── Grid de tarjetas ──────────────────────────────
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 14px;
+    }
+
+    &__card {
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+        transition: transform 0.2s;
+        background: variables.$color-btn;
+        cursor: pointer;
+
+        &:hover { transform: translateY(-4px); }
+        &:hover .perfil__card-btn-eliminar { display: flex; }
+    }
+
+    &__card-poster {
+        width: 100%;
+        aspect-ratio: 2/3;
+        object-fit: cover;
+        display: block;
+    }
+
+    &__card-info {
+        padding: 8px 10px;
+    }
+
+    &__card-titulo {
+        font-size: 11px;
+        font-weight: 600;
+        color: #ccc;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__card-btn-eliminar {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        background: rgba(199, 23, 23, 0.92);
+        border: none;
+        border-radius: 50%;
+        width: 26px;
+        height: 26px;
+        color: #fff;
+        font-size: 11px;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+        font-weight: 700;
+    }
+
+    // ─── Reseñas ───────────────────────────────────────
+    &__resena-item {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 10px;
+        padding: 20px 24px;
+        margin-bottom: 12px;
+        transition: border-color 0.2s;
+
+        &:hover { border-color: rgba(255, 255, 255, 0.12); }
+    }
+
+    &__resena-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 10px;
+        gap: 16px;
+    }
+
+    &__resena-titulo {
+        font-size: 15px;
+        font-weight: 700;
+        color: #fff;
+    }
+
+    &__resena-tipo {
+        font-size: 10px;
+        color: #555;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 3px;
+        font-weight: 600;
+    }
+
+    &__resena-calificacion {
+        color: variables.$color-btn--active;
+        font-weight: 700;
+        font-size: 16px;
+        flex-shrink: 0;
+        background: rgba(199, 23, 23, 0.1);
+        border-radius: 6px;
+        padding: 3px 10px;
+    }
+
+    &__resena-comentario {
+        font-size: 13px;
+        color: #888;
+        line-height: 1.65;
+    }
+
+    &__resena-acciones {
+        display: flex;
+        gap: 8px;
+        margin-top: 14px;
+    }
+
+    // ─── Listas ────────────────────────────────────────
+    &__lista-item {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 10px;
+        padding: 18px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        transition: border-color 0.2s;
+
+        &:hover { border-color: rgba(255, 255, 255, 0.12); }
+    }
+
+    &__lista-nombre {
+        font-size: 15px;
+        font-weight: 600;
+        color: #fff;
+    }
+
+    &__lista-count {
+        font-size: 12px;
+        color: #555;
+        margin-top: 3px;
+    }
+
+    // ─── Nueva lista ───────────────────────────────────
+    &__nueva-lista {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 24px;
+    }
+
+    &__input {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        padding: 11px 16px;
+        color: #fff;
+        font-family: variables.$fuente-primaria;
+        font-size: 14px;
+        outline: none;
+        transition: border-color 0.2s;
+
+        &:focus { border-color: variables.$color-btn--active; }
+        &::placeholder { color: #444; }
+    }
+
+    // ─── Card link (favoritos / historial) ────────────
+    &__card-link {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    // ─── Reseña con poster ─────────────────────────────
+    &__resena-body {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+    }
+
+    &__resena-poster-wrap {
+        display: block;
+        flex-shrink: 0;
+        text-decoration: none;
+    }
+
+    &__resena-poster {
+        width: 60px;
+        aspect-ratio: 2/3;
+        object-fit: cover;
+        border-radius: 4px;
+        display: block;
+    }
+
+    &__resena-content {
+        flex: 1;
+        min-width: 0;
+    }
+
+    &__resena-titulo-link {
+        text-decoration: none;
+        color: inherit;
+
+        &:hover .perfil__resena-titulo { color: variables.$color-btn--active; }
+    }
+
+    // ─── Formulario de edición inline ─────────────────
+    &__resena-edit-form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px 0 4px;
+    }
+
+    &__edit-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    &__edit-label {
+        font-size: 12px;
+        color: #666;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        flex-shrink: 0;
+    }
+
+    &__select-cal {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 6px;
+        color: #ddd;
+        padding: 7px 10px;
+        font-family: variables.$fuente-primaria;
+        font-size: 13px;
+        outline: none;
+        cursor: pointer;
+
+        option { background: #1c1c21; }
+    }
+
+    &__textarea {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 6px;
+        color: #ddd;
+        font-family: variables.$fuente-primaria;
+        font-size: 13px;
+        line-height: 1.6;
+        padding: 10px 14px;
+        resize: vertical;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+
+        &:focus { border-color: rgba(199, 23, 23, 0.5); }
+        &::placeholder { color: #444; }
+    }
+
+    &__edit-msg {
+        font-size: 12px;
+        font-weight: 600;
+        min-height: 16px;
+
+        &--ok    { color: #4caf50; }
+        &--error { color: variables.$color-btn--active; }
+    }
+
+    // ─── Lista link ────────────────────────────────────
+    &__lista-link {
+        flex: 1;
+        text-decoration: none;
+        color: inherit;
+        min-width: 0;
+
+        &:hover .perfil__lista-nombre { color: variables.$color-btn--active; }
+    }
+
+    // ─── Vacío ─────────────────────────────────────────
+    &__vacio {
+        text-align: center;
+        color: #444;
+        padding: 64px 20px;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    // ─── Sección "Comentarios en reseñas ajenas" ───────
+    &__comentarios-seccion {
+        margin-top: 36px;
+        padding-top: 28px;
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    &__seccion-label {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: #555;
+        margin-bottom: 18px;
+    }
+
+    &__comentario-en-resena {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+        padding: 14px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+        &:last-child { border-bottom: none; }
+    }
+
+    &__comentario-en-resena-body {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    &__comentario-en-resena-autor {
+        font-size: 11px;
+        color: #555;
+        font-weight: 500;
+    }
+
+    &__comentario-en-resena-texto {
+        font-size: 13px;
+        color: #888;
+        line-height: 1.55;
+        background: rgba(255, 255, 255, 0.03);
+        border-left: 2px solid rgba(199, 23, 23, 0.4);
+        padding: 6px 10px;
+        border-radius: 0 4px 4px 0;
+        margin-top: 2px;
+    }
+
+    &__btn-seguir {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 20px;
+        color: #ccc;
+        font-size: 13px;
+        font-weight: 600;
+        font-family: variables.$fuente-primaria;
+        padding: 7px 20px;
+        cursor: pointer;
+        margin-top: 12px;
+        transition: background 0.2s, color 0.2s;
+        display: block;
+
+        &:hover { background: rgba(255, 255, 255, 0.1); }
+
+        &--siguiendo {
+            background: rgba(199, 23, 23, 0.12);
+            border-color: rgba(199, 23, 23, 0.3);
+            color: #f87171;
+        }
+    }
+}

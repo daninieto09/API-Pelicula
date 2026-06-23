@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+		<script src="./public/lista-bundle.js" defer></script>
+		<link rel="stylesheet" href="./public/bundle.css" />
+		<title>Lista — CineTrack</title>
+	</head>
+	<body>
+
+		<nav class="nav-app">
+			<div class="nav-app__izq">
+				<a href="./index.html" class="nav-app__logo-wrap">
+					<img src="./img/logo.png" alt="Logo" class="nav-app__logo" />
+				</a>
+				<ul class="nav-app__links">
+					<li><a href="./index.html" class="nav-app__link">Inicio</a></li>
+					<li><a href="./peliculas.html" class="nav-app__link">Películas</a></li>
+					<li><a href="./listas.html" class="nav-app__link">Listas</a></li>
+					<li><a href="./miembros.html" class="nav-app__link">Miembros</a></li>
+				</ul>
+			</div>
+			<div class="nav-app__der" id="nav-auth"></div>
+		</nav>
+
+		<!-- Navegación atrás / adelante -->
+		<div class="nav-historial">
+			<button class="nav-historial__btn" onclick="history.back()">&#8592; Atrás</button>
+			<button class="nav-historial__btn" onclick="history.forward()">Adelante &#8594;</button>
+		</div>
+
+		<main class="lista">
+
+			<div class="lista__header">
+				<h1 class="lista__titulo" id="lista-nombre">Cargando...</h1>
+				<p class="lista__count" id="lista-count"></p>
+			</div>
+
+			<div id="lista-contenidos"></div>
+
+		</main>
+
+	</body>
+</html>

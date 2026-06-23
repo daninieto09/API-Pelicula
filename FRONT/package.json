@@ -1,0 +1,20 @@
+{
+	"name": "peliculas",
+	"version": "1.0.0",
+	"description": "",
+	"main": "rollup.config.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"sass": "sass --watch --style=compressed sass/index.scss public/bundle.css",
+		"build": "rollup --config --sourcemap && sass --style=compressed sass/index.scss public/bundle.css"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@rollup/plugin-replace": "6.0.3",
+		"dotenv": "17.4.1",
+		"rollup": "2.79.1",
+		"sass": "1.98.0"
+	}
+}

@@ -1,0 +1,119 @@
+@use 'variables';
+
+// ─── Contenedor principal ─────────────────────────────────────────
+
+.dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 40px 80px;
+
+    @media (max-width: 768px) { padding: 28px 20px 60px; }
+}
+
+// ─── Encabezado ───────────────────────────────────────────────────
+
+.dashboard__header { margin-bottom: 36px; }
+
+.dashboard__titulo {
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.5px;
+}
+
+.dashboard__subtitulo {
+    font-size: 14px;
+    color: #666;
+    margin-top: 6px;
+}
+
+// ─── Tarjetas de resumen ──────────────────────────────────────────
+
+.dashboard__resumen {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+    gap: 16px;
+    margin-bottom: 48px;
+}
+
+.dashboard__card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
+    padding: 22px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: border-color 0.2s;
+
+    &:hover { border-color: rgba(255, 255, 255, 0.13); }
+}
+
+.dashboard__card-num {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+}
+
+.dashboard__card-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+// ─── Grid de gráficos ─────────────────────────────────────────────
+
+.dashboard__graficos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+
+    @media (max-width: 860px) { grid-template-columns: 1fr; }
+}
+
+// ─── Bloque de gráfico ────────────────────────────────────────────
+
+.dashboard__chart-wrap {
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
+    padding: 28px 24px;
+
+    &--full { grid-column: 1 / -1; }
+}
+
+.dashboard__seccion-titulo {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 22px;
+}
+
+.dashboard__chart-container {
+    position: relative;
+    height: 280px;
+
+    &--dona { height: 300px; }
+}
+
+// ─── Mensajes vacíos / error ──────────────────────────────────────
+
+.dashboard__chart-vacio {
+    font-size: 13px;
+    color: #444;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.dashboard__error {
+    font-size: 14px;
+    color: variables.$color-btn--active;
+    padding: 32px 0;
+    text-align: center;
+    grid-column: 1 / -1;
+}

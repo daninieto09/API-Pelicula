@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="./public/bundle.css" />
+		<title>Favoritos — CineTrack</title>
+	</head>
+	<body>
+
+		<nav class="nav-app">
+			<div class="nav-app__izq">
+				<a href="./index.html" class="nav-app__logo-wrap">
+					<img src="./img/logo.png" alt="Logo" class="nav-app__logo" />
+				</a>
+				<ul class="nav-app__links">
+					<li><a href="./landing.html" class="nav-app__link">Inicio</a></li>
+					<li><a href="./peliculas.html" class="nav-app__link">Películas</a></li>
+					<li><a href="./listas.html" class="nav-app__link">Listas</a></li>
+					<li><a href="./miembros.html" class="nav-app__link">Miembros</a></li>
+				</ul>
+			</div>
+			<div class="nav-app__der">
+				<a href="./login.html" class="btn">Iniciar Sesión</a>
+				<a href="./register.html" class="btn btn--rojo">Crear Cuenta</a>
+			</div>
+		</nav>
+
+		<div class="feature-breadcrumb">
+			<a href="./landing.html">← Volver al inicio</a>
+		</div>
+
+		<!-- HERO -->
+		<section class="feature-hero">
+			<div class="feature-hero__grid">
+				<div>
+					<span class="feature-hero__tag">Organiza Tu Librería</span>
+					<h1 class="feature-hero__title">Tus Películas Favoritas, Un Click Away</h1>
+					<p class="feature-hero__desc">
+						Marca cualquier película o serie como favorita con un solo click. Construye tu biblioteca
+						personal y accede a ella desde cualquier dispositivo, en cualquier momento.
+					</p>
+					<div class="feature-hero__actions">
+						<a href="./register.html" class="btn btn--rojo">Comenzar Ahora</a>
+						<a href="./login.html" class="btn">Iniciar Sesión</a>
+					</div>
+				</div>
+				<div class="feature-hero__visual">
+					<div class="feature-icon-card">
+						<span class="feature-icon-card__icon feature-icon-card__icon--heartbeat">❤️</span>
+						<h3 class="feature-icon-card__title">Tu librería personal</h3>
+						<p class="feature-icon-card__desc">Cientos de títulos a tu alcance, organizados exactamente como tú los quieres.</p>
+						<span class="feature-icon-card__badge">Sincronización en la nube</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CARRUSEL DINÁMICO — FAVORITOS -->
+		<section class="feature-carousel-section">
+			<div class="feature-carousel-section__text">
+				<p class="feature-section-label">Lo más popular ahora</p>
+				<h2 class="feature-section-title">Títulos para guardar en favoritos</h2>
+				<p class="feature-carousel-section__desc">
+					Con un solo click marcas cualquier película o serie como favorita.
+					Construye tu biblioteca personal y accede a ella desde cualquier dispositivo.
+					Datos actualizados en tiempo real desde TMDB.
+				</p>
+				<a href="./register.html" class="btn btn--rojo feature-carousel-section__cta">Guardar mis favoritos</a>
+			</div>
+			<div class="fcarousel">
+				<div class="fcarousel__track" id="fcarousel-track">
+					<p class="fcarousel__loading">Cargando...</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- GALERÍA -->
+		<section class="feature-gallery-section">
+			<p class="feature-section-label">Tu colección</p>
+			<h2 class="feature-section-title">Así luce tu librería de favoritos</h2>
+			<div class="feature-gallery">
+				<div class="feature-gallery__poster">
+					<img src="https://image.tmdb.org/t/p/w300/t6HIqrRAclMPA5NTYrIDshwkB1K.jpg" alt="The Brutalist" loading="lazy" />
+					<div class="feature-gallery__poster-badge">❤️</div>
+				</div>
+				<div class="feature-gallery__poster">
+					<img src="https://image.tmdb.org/t/p/w300/kDp1vKMwitKoHHJNaklIB2ypoHZ.jpg" alt="Inside Out 2" loading="lazy" />
+					<div class="feature-gallery__poster-badge">❤️</div>
+				</div>
+				<div class="feature-gallery__poster">
+					<img src="https://image.tmdb.org/t/p/w300/4ynQjHkYW1sNKKEX5xf2vvMWvVu.jpg" alt="Deadpool &amp; Wolverine" loading="lazy" />
+					<div class="feature-gallery__poster-badge">❤️</div>
+				</div>
+				<div class="feature-gallery__poster">
+					<img src="https://image.tmdb.org/t/p/w300/1U9t0Fx0lrGFkFPCzpx3GIVLmVU.jpg" alt="Película favorita" loading="lazy" />
+					<div class="feature-gallery__poster-badge">❤️</div>
+				</div>
+				<div class="feature-gallery__poster">
+					<img src="https://image.tmdb.org/t/p/w300/8Gxv8jQ7P0VWvCJhyZ21xGJztw9.jpg" alt="Película favorita" loading="lazy" />
+					<div class="feature-gallery__poster-badge">❤️</div>
+				</div>
+				<div class="feature-gallery__poster">
+					<img src="https://image.tmdb.org/t/p/w300/d0J4VGmMZKaL8zDDJ8wGQZODM8Z.jpg" alt="Película favorita" loading="lazy" />
+					<div class="feature-gallery__poster-badge">❤️</div>
+				</div>
+				<div class="feature-gallery__poster">
+					<img src="https://image.tmdb.org/t/p/w300/nCxK8ghX34nZNBJNPRWRPk1AFWW.jpg" alt="Película favorita" loading="lazy" />
+					<div class="feature-gallery__poster-badge">❤️</div>
+				</div>
+				<div class="feature-gallery__poster">
+					<img src="https://image.tmdb.org/t/p/w300/pP8CcV87vEw9j8OdC0TGmMvVMdM.jpg" alt="Película favorita" loading="lazy" />
+					<div class="feature-gallery__poster-badge">❤️</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CTA -->
+		<section class="feature-cta">
+			<h2 class="feature-cta__title">Construye Tu Librería Hoy</h2>
+			<p class="feature-cta__desc">
+				Empieza a marcar tus películas favoritas ahora mismo. Es gratis,
+				es fácil y tu colección te espera.
+			</p>
+			<div class="feature-cta__actions">
+				<a href="./register.html" class="btn btn--rojo">Crear Cuenta Gratis</a>
+				<a href="./landing.html" class="btn">Aprender Más</a>
+			</div>
+		</section>
+
+		<footer class="feature-footer">
+			<div class="feature-footer__inner">
+				<a href="./landing.html" class="feature-footer__brand">CineTrack</a>
+				<p class="feature-footer__more">
+					Descubre más:
+					<a href="./feature-resenas.html">Reseñas</a> ·
+					<a href="./feature-favoritos.html">Favoritos</a> ·
+					<a href="./feature-listas.html">Listas</a> ·
+					<a href="./feature-historial.html">Historial</a>
+				</p>
+			</div>
+		</footer>
+
+	<script>
+		(function () {
+			var KEY = 'f7d9053e72bae73157a14fd0ad07e437';
+			var TMDB = 'https://api.themoviedb.org/3';
+			var IMG = 'https://image.tmdb.org/t/p/w185/';
+			var ITEM_H = 90;
+
+			function scroll(track, count) {
+				var max = Math.max(0, count - 3);
+				var cur = 0;
+				setInterval(function () {
+					if (cur >= max) {
+						track.style.transition = 'none';
+						track.style.transform = 'translateY(0)';
+						cur = 0;
+						requestAnimationFrame(function () { requestAnimationFrame(function () { track.style.transition = 'transform 0.65s cubic-bezier(0.4,0,0.2,1)'; }); });
+					} else {
+						cur++;
+						track.style.transform = 'translateY(-' + (cur * ITEM_H) + 'px)';
+					}
+				}, 2800);
+			}
+
+			var track = document.getElementById('fcarousel-track');
+			if (!track) return;
+
+			fetch(TMDB + '/movie/popular?api_key=' + KEY + '&language=es-ES')
+				.then(function (r) { return r.json(); })
+				.then(function (d) {
+					var items = (d.results || []).filter(function (m) { return m.poster_path; }).slice(0, 9);
+					if (!items.length) { track.innerHTML = '<p class="fcarousel__loading">Sin datos</p>'; return; }
+					track.innerHTML = items.map(function (m) {
+						var year = m.release_date ? m.release_date.substring(0, 4) : '';
+						var rating = m.vote_average ? '★ ' + m.vote_average.toFixed(1) + '/10' : '';
+						var sub = [year, rating].filter(Boolean).join(' · ');
+						return '<div class="fcarousel__item">' +
+							'<img src="' + IMG + m.poster_path + '" alt="" loading="lazy" />' +
+							'<div class="fcarousel__meta">' +
+							'<span class="fcarousel__badge">❤ Guardar en favoritos</span>' +
+							'<p class="fcarousel__title">' + m.title + '</p>' +
+							'<p class="fcarousel__sub">' + sub + '</p>' +
+							'</div></div>';
+					}).join('');
+					scroll(track, items.length);
+				})
+				.catch(function () { track.innerHTML = '<p class="fcarousel__loading">No disponible</p>'; });
+		})();
+	</script>
+
+	</body>
+</html>

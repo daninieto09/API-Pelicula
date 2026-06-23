@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="./public/bundle.css" />
+		<title>Listas — CineTrack</title>
+	</head>
+	<body>
+
+		<nav class="nav-app">
+			<div class="nav-app__izq">
+				<a href="./index.html" class="nav-app__logo-wrap">
+					<img src="./img/logo.png" alt="Logo" class="nav-app__logo" />
+				</a>
+				<ul class="nav-app__links">
+					<li><a href="./landing.html" class="nav-app__link">Inicio</a></li>
+					<li><a href="./peliculas.html" class="nav-app__link">Películas</a></li>
+					<li><a href="./listas.html" class="nav-app__link">Listas</a></li>
+					<li><a href="./miembros.html" class="nav-app__link">Miembros</a></li>
+				</ul>
+			</div>
+			<div class="nav-app__der">
+				<a href="./login.html" class="btn">Iniciar Sesión</a>
+				<a href="./register.html" class="btn btn--rojo">Crear Cuenta</a>
+			</div>
+		</nav>
+
+		<div class="feature-breadcrumb">
+			<a href="./landing.html">← Volver al inicio</a>
+		</div>
+
+		<!-- HERO -->
+		<section class="feature-hero">
+			<div class="feature-hero__grid">
+				<div>
+					<span class="feature-hero__tag">Organiza lo Que Quieres Ver</span>
+					<h1 class="feature-hero__title">Crea Listas Temáticas</h1>
+					<p class="feature-hero__desc">
+						Por género, director, década o estado de ánimo: organiza el cine como tú quieras.
+						Comparte tus listas con la comunidad y descubre las de otros cinéfilos.
+					</p>
+					<div class="feature-hero__actions">
+						<a href="./register.html" class="btn btn--rojo">Comenzar Ahora</a>
+						<a href="./login.html" class="btn">Iniciar Sesión</a>
+					</div>
+				</div>
+				<div class="feature-hero__visual">
+					<div class="feature-icon-card">
+						<span class="feature-icon-card__icon feature-icon-card__icon--slide">📋</span>
+						<h3 class="feature-icon-card__title">Organización total</h3>
+						<p class="feature-icon-card__desc">Crea listas ilimitadas. Cada lista cuenta una historia diferente sobre tu gusto cinematográfico.</p>
+						<span class="feature-icon-card__badge">Público o privado</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CARRUSEL DINÁMICO — LISTAS -->
+		<section class="feature-carousel-section">
+			<div class="feature-carousel-section__text">
+				<p class="feature-section-label">Tendencias de la semana</p>
+				<h2 class="feature-section-title">Títulos para organizar en listas</h2>
+				<p class="feature-carousel-section__desc">
+					Crea listas por género, director, década o estado de ánimo.
+					Añade cualquier película o serie, ordénalas como quieras y
+					compártelas con la comunidad. Datos en tiempo real desde TMDB.
+				</p>
+				<a href="./register.html" class="btn btn--rojo feature-carousel-section__cta">Crear mi primera lista</a>
+			</div>
+			<div class="fcarousel">
+				<div class="fcarousel__track" id="fcarousel-track">
+					<p class="fcarousel__loading">Cargando...</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- EJEMPLOS DE LISTAS -->
+		<section class="feature-lists-section">
+			<p class="feature-section-label">De la comunidad</p>
+			<h2 class="feature-section-title">Listas que inspiran</h2>
+			<div class="feature-lists__grid">
+
+				<div class="feature-list-card">
+					<div class="feature-list-card__header">
+						<span class="feature-list-card__icon">🔥</span>
+						<div class="feature-list-card__info">
+							<p class="feature-list-card__name">Thrillers Imprescindibles</p>
+							<p class="feature-list-card__creator">por @cinefilter</p>
+						</div>
+					</div>
+					<p class="feature-list-card__desc">Los thrillers que te mantienen al borde del asiento. Selección de lo mejor del género en las últimas dos décadas.</p>
+					<div class="feature-list-card__posters">
+						<img src="https://image.tmdb.org/t/p/w300/t6HIqrRAclMPA5NTYrIDshwkB1K.jpg" alt="Película" loading="lazy" />
+						<img src="https://image.tmdb.org/t/p/w300/kDp1vKMwitKoHHJNaklIB2ypoHZ.jpg" alt="Película" loading="lazy" />
+						<img src="https://image.tmdb.org/t/p/w300/4ynQjHkYW1sNKKEX5xf2vvMWvVu.jpg" alt="Película" loading="lazy" />
+					</div>
+					<div class="feature-list-card__footer">
+						<span>12 películas</span>
+						<span class="likes">❤️ 342</span>
+					</div>
+				</div>
+
+				<div class="feature-list-card">
+					<div class="feature-list-card__header">
+						<span class="feature-list-card__icon">🍿</span>
+						<div class="feature-list-card__info">
+							<p class="feature-list-card__name">Noches de Películas Cómicas</p>
+							<p class="feature-list-card__creator">por @laughtrackfanatic</p>
+						</div>
+					</div>
+					<p class="feature-list-card__desc">Las comedias perfectas para una noche de sofá y palomitas. Garantía de risas y buen humor.</p>
+					<div class="feature-list-card__posters">
+						<img src="https://image.tmdb.org/t/p/w300/4ynQjHkYW1sNKKEX5xf2vvMWvVu.jpg" alt="Película" loading="lazy" />
+						<img src="https://image.tmdb.org/t/p/w300/t6HIqrRAclMPA5NTYrIDshwkB1K.jpg" alt="Película" loading="lazy" />
+						<img src="https://image.tmdb.org/t/p/w300/kDp1vKMwitKoHHJNaklIB2ypoHZ.jpg" alt="Película" loading="lazy" />
+					</div>
+					<div class="feature-list-card__footer">
+						<span>15 películas</span>
+						<span class="likes">❤️ 521</span>
+					</div>
+				</div>
+
+				<div class="feature-list-card">
+					<div class="feature-list-card__header">
+						<span class="feature-list-card__icon">🎬</span>
+						<div class="feature-list-card__info">
+							<p class="feature-list-card__name">Masterpieces de Sci-Fi</p>
+							<p class="feature-list-card__creator">por @spacecineasta</p>
+						</div>
+					</div>
+					<p class="feature-list-card__desc">Ciencia ficción que te hace pensar. Desde clásicos que definieron el género hasta joyas contemporáneas.</p>
+					<div class="feature-list-card__posters">
+						<img src="https://image.tmdb.org/t/p/w300/kDp1vKMwitKoHHJNaklIB2ypoHZ.jpg" alt="Película" loading="lazy" />
+						<img src="https://image.tmdb.org/t/p/w300/4ynQjHkYW1sNKKEX5xf2vvMWvVu.jpg" alt="Película" loading="lazy" />
+						<img src="https://image.tmdb.org/t/p/w300/t6HIqrRAclMPA5NTYrIDshwkB1K.jpg" alt="Película" loading="lazy" />
+					</div>
+					<div class="feature-list-card__footer">
+						<span>10 películas</span>
+						<span class="likes">❤️ 678</span>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<!-- CTA -->
+		<section class="feature-cta">
+			<h2 class="feature-cta__title">Comienza a Crear Listas</h2>
+			<p class="feature-cta__desc">
+				El cine organizado como tú quieres. Crea tu primera lista en segundos
+				y compártela con la comunidad.
+			</p>
+			<div class="feature-cta__actions">
+				<a href="./register.html" class="btn btn--rojo">Crear Cuenta Gratis</a>
+				<a href="./landing.html" class="btn">Aprender Más</a>
+			</div>
+		</section>
+
+		<footer class="feature-footer">
+			<div class="feature-footer__inner">
+				<a href="./landing.html" class="feature-footer__brand">CineTrack</a>
+				<p class="feature-footer__more">
+					Descubre más:
+					<a href="./feature-resenas.html">Reseñas</a> ·
+					<a href="./feature-favoritos.html">Favoritos</a> ·
+					<a href="./feature-listas.html">Listas</a> ·
+					<a href="./feature-historial.html">Historial</a>
+				</p>
+			</div>
+		</footer>
+
+	<script>
+		(function () {
+			var KEY = 'f7d9053e72bae73157a14fd0ad07e437';
+			var TMDB = 'https://api.themoviedb.org/3';
+			var IMG = 'https://image.tmdb.org/t/p/w185/';
+			var ITEM_H = 90;
+
+			function scroll(track, count) {
+				var max = Math.max(0, count - 3);
+				var cur = 0;
+				setInterval(function () {
+					if (cur >= max) {
+						track.style.transition = 'none';
+						track.style.transform = 'translateY(0)';
+						cur = 0;
+						requestAnimationFrame(function () { requestAnimationFrame(function () { track.style.transition = 'transform 0.65s cubic-bezier(0.4,0,0.2,1)'; }); });
+					} else {
+						cur++;
+						track.style.transform = 'translateY(-' + (cur * ITEM_H) + 'px)';
+					}
+				}, 2800);
+			}
+
+			var track = document.getElementById('fcarousel-track');
+			if (!track) return;
+
+			fetch(TMDB + '/trending/movie/week?api_key=' + KEY + '&language=es-ES')
+				.then(function (r) { return r.json(); })
+				.then(function (d) {
+					var items = (d.results || []).filter(function (m) { return m.poster_path; }).slice(0, 9);
+					if (!items.length) { track.innerHTML = '<p class="fcarousel__loading">Sin datos</p>'; return; }
+					track.innerHTML = items.map(function (m, i) {
+						var pos = '#' + (i + 1) + ' en tendencia esta semana';
+						var overview = (m.overview || 'Sin descripción.').substring(0, 100);
+						return '<div class="fcarousel__item">' +
+							'<img src="' + IMG + m.poster_path + '" alt="" loading="lazy" />' +
+							'<div class="fcarousel__meta">' +
+							'<span class="fcarousel__badge">📋 ' + pos + '</span>' +
+							'<p class="fcarousel__title">' + (m.title || m.name) + '</p>' +
+							'<p class="fcarousel__sub">' + overview + '…</p>' +
+							'</div></div>';
+					}).join('');
+					scroll(track, items.length);
+				})
+				.catch(function () { track.innerHTML = '<p class="fcarousel__loading">No disponible</p>'; });
+		})();
+	</script>
+
+	</body>
+</html>

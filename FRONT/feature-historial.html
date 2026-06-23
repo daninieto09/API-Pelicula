@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="./public/bundle.css" />
+		<title>Historial — CineTrack</title>
+	</head>
+	<body>
+
+		<nav class="nav-app">
+			<div class="nav-app__izq">
+				<a href="./index.html" class="nav-app__logo-wrap">
+					<img src="./img/logo.png" alt="Logo" class="nav-app__logo" />
+				</a>
+				<ul class="nav-app__links">
+					<li><a href="./landing.html" class="nav-app__link">Inicio</a></li>
+					<li><a href="./peliculas.html" class="nav-app__link">Películas</a></li>
+					<li><a href="./listas.html" class="nav-app__link">Listas</a></li>
+					<li><a href="./miembros.html" class="nav-app__link">Miembros</a></li>
+				</ul>
+			</div>
+			<div class="nav-app__der">
+				<a href="./login.html" class="btn">Iniciar Sesión</a>
+				<a href="./register.html" class="btn btn--rojo">Crear Cuenta</a>
+			</div>
+		</nav>
+
+		<div class="feature-breadcrumb">
+			<a href="./landing.html">← Volver al inicio</a>
+		</div>
+
+		<!-- HERO -->
+		<section class="feature-hero">
+			<div class="feature-hero__grid">
+				<div>
+					<span class="feature-hero__tag">Tu Historial Cinematográfico</span>
+					<h1 class="feature-hero__title">Nunca Olvides Lo Que Viste</h1>
+					<p class="feature-hero__desc">
+						CineTrack registra automáticamente cada película y serie que marcas como vista.
+						Revive tu historia cinematográfica con estadísticas, gráficos y una línea de tiempo
+						personal de todo lo que has disfrutado.
+					</p>
+					<div class="feature-hero__actions">
+						<a href="./register.html" class="btn btn--rojo">Comenzar Ahora</a>
+						<a href="./login.html" class="btn">Iniciar Sesión</a>
+					</div>
+				</div>
+				<div class="feature-hero__visual">
+					<div class="feature-icon-card">
+						<span class="feature-icon-card__icon feature-icon-card__icon--spin">⏱️</span>
+						<h3 class="feature-icon-card__title">Tu memoria del cine</h3>
+						<p class="feature-icon-card__desc">Cada título que ves queda registrado. Tu historial crece contigo y te cuenta tu historia.</p>
+						<span class="feature-icon-card__badge">Privado y seguro</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ESTADÍSTICAS EJEMPLO -->
+		<section class="feature-stats-section">
+			<p class="feature-section-label">Ejemplo de usuario</p>
+			<h2 class="feature-section-title">Tu historial en números</h2>
+			<div class="feature-stats">
+				<div class="feature-stat">
+					<span class="feature-stat__icon">🎬</span>
+					<p class="feature-stat__number">247</p>
+					<p class="feature-stat__label">Películas Vistas</p>
+				</div>
+				<div class="feature-stat">
+					<span class="feature-stat__icon">📺</span>
+					<p class="feature-stat__number">89</p>
+					<p class="feature-stat__label">Series Completadas</p>
+				</div>
+				<div class="feature-stat">
+					<span class="feature-stat__icon">⏰</span>
+					<p class="feature-stat__number">1,240h</p>
+					<p class="feature-stat__label">Horas de Visionado</p>
+				</div>
+				<div class="feature-stat">
+					<span class="feature-stat__icon">⭐</span>
+					<p class="feature-stat__number">8.2</p>
+					<p class="feature-stat__label">Rating Promedio</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- CARRUSEL DINÁMICO — HISTORIAL -->
+		<section class="feature-carousel-section">
+			<div class="feature-carousel-section__text">
+				<p class="feature-section-label">Tendencias esta semana</p>
+				<h2 class="feature-section-title">Registra todo lo que ves</h2>
+				<p class="feature-carousel-section__desc">
+					Cada película o serie que marcas queda guardada en tu historial
+					personal. Filtra por fecha, revive temporadas enteras y descubre
+					tus estadísticas de visionado. Datos en tiempo real desde TMDB.
+				</p>
+				<a href="./register.html" class="btn btn--rojo feature-carousel-section__cta">Empezar mi historial</a>
+			</div>
+			<div class="fcarousel">
+				<div class="fcarousel__track" id="fcarousel-track">
+					<p class="fcarousel__loading">Cargando...</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- TIMELINE -->
+		<section class="feature-timeline-section">
+			<p class="feature-section-label">Tu línea de tiempo</p>
+			<h2 class="feature-section-title">Cada título tiene su momento</h2>
+			<div class="feature-timeline">
+
+				<div class="feature-timeline__item">
+					<div class="feature-timeline__dot"></div>
+					<div class="feature-timeline__card">
+						<p class="feature-timeline__card-time">Hoy · 15:30</p>
+						<p class="feature-timeline__card-title">Dune: Part Two</p>
+						<p class="feature-timeline__card-meta">Calificación: <span class="rating">9/10</span></p>
+					</div>
+				</div>
+
+				<div class="feature-timeline__item">
+					<div class="feature-timeline__dot"></div>
+					<div class="feature-timeline__card">
+						<p class="feature-timeline__card-time">Ayer · 20:45</p>
+						<p class="feature-timeline__card-title">The Brutalist</p>
+						<p class="feature-timeline__card-meta">Calificación: <span class="rating">9.5/10</span></p>
+					</div>
+				</div>
+
+				<div class="feature-timeline__item">
+					<div class="feature-timeline__dot"></div>
+					<div class="feature-timeline__card">
+						<p class="feature-timeline__card-time">3 de mayo</p>
+						<p class="feature-timeline__card-title">Breaking Bad</p>
+						<p class="feature-timeline__card-meta">62 episodios · 5 temporadas completadas</p>
+					</div>
+				</div>
+
+				<div class="feature-timeline__item">
+					<div class="feature-timeline__dot"></div>
+					<div class="feature-timeline__card">
+						<p class="feature-timeline__card-time">1 de mayo</p>
+						<p class="feature-timeline__card-title">Inside Out 2</p>
+						<p class="feature-timeline__card-meta">Calificación: <span class="rating">8.5/10</span></p>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<!-- CTA -->
+		<section class="feature-cta">
+			<h2 class="feature-cta__title">Comienza a Registrar Tu Historial</h2>
+			<p class="feature-cta__desc">
+				Cada película cuenta. Empieza hoy y en un año tendrás una historia
+				cinematográfica que contar.
+			</p>
+			<div class="feature-cta__actions">
+				<a href="./register.html" class="btn btn--rojo">Crear Cuenta Gratis</a>
+				<a href="./landing.html" class="btn">Aprender Más</a>
+			</div>
+		</section>
+
+		<footer class="feature-footer">
+			<div class="feature-footer__inner">
+				<a href="./landing.html" class="feature-footer__brand">CineTrack</a>
+				<p class="feature-footer__more">
+					Descubre más:
+					<a href="./feature-resenas.html">Reseñas</a> ·
+					<a href="./feature-favoritos.html">Favoritos</a> ·
+					<a href="./feature-listas.html">Listas</a> ·
+					<a href="./feature-historial.html">Historial</a>
+				</p>
+			</div>
+		</footer>
+
+	<script>
+		(function () {
+			var KEY = 'f7d9053e72bae73157a14fd0ad07e437';
+			var TMDB = 'https://api.themoviedb.org/3';
+			var IMG = 'https://image.tmdb.org/t/p/w185/';
+			var ITEM_H = 90;
+			var CUANDO = ['Hoy', 'Ayer', 'Hace 3 días', 'Hace 5 días', 'Hace 1 semana', 'Hace 9 días', 'Hace 2 semanas', 'Hace 16 días', 'Hace 3 semanas'];
+
+			function scroll(track, count) {
+				var max = Math.max(0, count - 3);
+				var cur = 0;
+				setInterval(function () {
+					if (cur >= max) {
+						track.style.transition = 'none';
+						track.style.transform = 'translateY(0)';
+						cur = 0;
+						requestAnimationFrame(function () { requestAnimationFrame(function () { track.style.transition = 'transform 0.65s cubic-bezier(0.4,0,0.2,1)'; }); });
+					} else {
+						cur++;
+						track.style.transform = 'translateY(-' + (cur * ITEM_H) + 'px)';
+					}
+				}, 2800);
+			}
+
+			var track = document.getElementById('fcarousel-track');
+			if (!track) return;
+
+			fetch(TMDB + '/trending/movie/week?api_key=' + KEY + '&language=es-ES')
+				.then(function (r) { return r.json(); })
+				.then(function (d) {
+					var items = (d.results || []).filter(function (m) { return m.poster_path; }).slice(0, 9);
+					if (!items.length) { track.innerHTML = '<p class="fcarousel__loading">Sin datos</p>'; return; }
+					track.innerHTML = items.map(function (m, i) {
+						var cuando = CUANDO[i] || 'Hace un tiempo';
+						var rating = m.vote_average ? '★ ' + m.vote_average.toFixed(1) + '/10' : '';
+						return '<div class="fcarousel__item">' +
+							'<img src="' + IMG + m.poster_path + '" alt="" loading="lazy" />' +
+							'<div class="fcarousel__meta">' +
+							'<span class="fcarousel__badge">✓ Vista · ' + cuando + '</span>' +
+							'<p class="fcarousel__title">' + (m.title || m.name) + '</p>' +
+							'<p class="fcarousel__sub">' + rating + (m.release_date ? ' · ' + m.release_date.substring(0, 4) : '') + '</p>' +
+							'</div></div>';
+					}).join('');
+					scroll(track, items.length);
+				})
+				.catch(function () { track.innerHTML = '<p class="fcarousel__loading">No disponible</p>'; });
+		})();
+	</script>
+
+	</body>
+</html>

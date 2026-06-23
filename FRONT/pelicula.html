@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+		<script src="./public/pelicula-bundle.js" defer></script>
+		<link rel="stylesheet" href="./public/bundle.css" />
+		<title>CineTrack</title>
+	</head>
+	<body>
+
+		<nav class="nav-app">
+			<div class="nav-app__izq">
+				<a href="./index.html" class="nav-app__logo-wrap">
+					<img src="./img/logo.png" alt="Logo" class="nav-app__logo" />
+				</a>
+				<ul class="nav-app__links">
+					<li><a href="./index.html" class="nav-app__link">Inicio</a></li>
+					<li><a href="./peliculas.html" class="nav-app__link">Películas</a></li>
+					<li><a href="./listas.html" class="nav-app__link">Listas</a></li>
+					<li><a href="./miembros.html" class="nav-app__link">Miembros</a></li>
+				</ul>
+			</div>
+			<div class="nav-app__der" id="nav-auth"></div>
+		</nav>
+
+		<!-- Navegación atrás / adelante -->
+		<div class="nav-historial">
+			<button class="nav-historial__btn" onclick="history.back()">&#8592; Atrás</button>
+			<button class="nav-historial__btn" onclick="history.forward()">Adelante &#8594;</button>
+		</div>
+
+		<!-- Backdrop -->
+		<div class="pelicula__backdrop" id="pel-backdrop" style="display:none"></div>
+
+		<div class="pelicula__layout">
+
+			<!-- ─── Columna izquierda: poster + acciones ── -->
+			<aside class="pelicula__aside">
+				<img id="pel-poster" class="pelicula__poster" src="" alt="" />
+
+				<!-- Acciones del usuario -->
+				<div class="pelicula__acciones-wrap" id="pel-acciones"></div>
+
+				<!-- Agregar a lista -->
+				<div class="pelicula__listas-wrap" id="pel-listas-wrap" style="display:none">
+					<select class="pelicula__select" id="pel-select-lista"></select>
+					<button class="btn" id="btn-agregar-lista" type="button">+ Agregar a lista</button>
+				</div>
+
+				<!-- Stats de comunidad -->
+				<div class="pelicula__stats-col">
+					<div class="pelicula__stat">
+						<span class="pelicula__stat-num" id="pel-stat-vistos">—</span>
+						<span class="pelicula__stat-label">Vistos</span>
+					</div>
+					<div class="pelicula__stat">
+						<span class="pelicula__stat-num" id="pel-stat-favoritos">—</span>
+						<span class="pelicula__stat-label">Favoritos</span>
+					</div>
+					<div class="pelicula__stat">
+						<span class="pelicula__stat-num" id="pel-stat-resenas">—</span>
+						<span class="pelicula__stat-label">Reseñas</span>
+					</div>
+				</div>
+			</aside>
+
+			<!-- ─── Columna derecha: info + reseñas ───────── -->
+			<main class="pelicula__main" id="pel-main">
+
+				<!-- Header del contenido -->
+				<div class="pelicula__header">
+					<div class="pelicula__titulo-wrap">
+						<h1 class="pelicula__titulo" id="pel-titulo"></h1>
+						<span class="pelicula__anio" id="pel-anio"></span>
+					</div>
+					<p class="pelicula__generos" id="pel-generos"></p>
+					<p class="pelicula__duracion" id="pel-duracion"></p>
+
+					<!-- Calificación promedio (oculta si sin reseñas) -->
+					<div class="pelicula__prom-wrap" id="pel-prom-wrap" style="display:none">
+						<span class="pelicula__prom-stars" id="pel-prom-stars"></span>
+						<span class="pelicula__prom" id="pel-prom"></span>
+						<span class="pelicula__prom-label">promedio comunidad</span>
+					</div>
+				</div>
+
+				<p class="pelicula__overview" id="pel-overview"></p>
+
+				<!-- ─── Formulario de reseña (si logueado) ── -->
+				<section class="pelicula__form-wrap" id="pel-form-wrap" style="display:none">
+					<p class="pelicula__seccion-titulo">Tu reseña</p>
+
+					<div class="pelicula__rating-wrap">
+						<div class="pelicula__rating-row" id="pel-rating"></div>
+						<span class="pelicula__rating-label" id="pel-rating-label">Sin calificación</span>
+					</div>
+
+					<textarea
+						class="pelicula__textarea"
+						id="pel-comentario"
+						placeholder="Escribe tu opinión... (opcional)"
+						rows="4"
+					></textarea>
+
+					<p class="pelicula__form-msg" id="pel-form-msg"></p>
+
+					<div class="pelicula__form-acciones">
+						<button class="btn btn--rojo" id="btn-publicar" type="button">Publicar reseña</button>
+						<button class="btn" id="btn-eliminar" type="button" style="display:none">Eliminar reseña</button>
+					</div>
+				</section>
+
+				<!-- ─── Reseñas de la comunidad ─────────────── -->
+				<section class="pelicula__resenas-seccion">
+					<p class="pelicula__seccion-titulo">Reseñas de la comunidad</p>
+					<div id="pel-resenas"></div>
+				</section>
+
+			</main>
+		</div>
+
+	</body>
+</html>

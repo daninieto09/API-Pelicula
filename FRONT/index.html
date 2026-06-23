@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+		<script src="./public/bundle.js" defer></script>
+		<link rel="stylesheet" href="./public/bundle.css" />
+		<title>Inicio — CineTrack</title>
+	</head>
+	<body>
+		<nav class="nav-app">
+			<div class="nav-app__izq">
+				<a href="./index.html" class="nav-app__logo-wrap">
+					<img src="./img/logo.png" alt="Logo" class="nav-app__logo" />
+				</a>
+				<ul class="nav-app__links">
+					<li><a href="./index.html" class="nav-app__link">Inicio</a></li>
+					<li><a href="./peliculas.html" class="nav-app__link">Películas</a></li>
+					<li><a href="./listas.html" class="nav-app__link">Listas</a></li>
+					<li><a href="./miembros.html" class="nav-app__link">Miembros</a></li>
+				</ul>
+			</div>
+			<div class="nav-app__der" id="nav-auth"></div>
+		</nav>
+
+		<main class="inicio">
+
+			<!-- ─── Bienvenida ────────────────────────────── -->
+			<section class="inicio__bienvenida">
+				<p class="inicio__eyebrow">Bienvenido/a de vuelta</p>
+				<h1 class="inicio__nombre" id="inicio-nombre"></h1>
+				<div class="inicio__stats-row">
+					<div class="inicio__stat">
+						<span class="inicio__stat-num" id="inicio-stat-historial">—</span>
+						<span class="inicio__stat-label">Vistos</span>
+					</div>
+					<div class="inicio__stat">
+						<span class="inicio__stat-num" id="inicio-stat-favoritos">—</span>
+						<span class="inicio__stat-label">Favoritos</span>
+					</div>
+					<div class="inicio__stat">
+						<span class="inicio__stat-num" id="inicio-stat-resenas">—</span>
+						<span class="inicio__stat-label">Reseñas</span>
+					</div>
+					<div class="inicio__stat">
+						<span class="inicio__stat-num" id="inicio-stat-listas">—</span>
+						<span class="inicio__stat-label">Listas</span>
+					</div>
+				</div>
+			</section>
+
+			<!-- ─── Historial ───────────────────────────── -->
+			<section>
+				<p class="inicio__seccion-titulo">Tu actividad reciente</p>
+				<div class="inicio__poster-row" id="inicio-historial"></div>
+				<a href="./perfil.html" class="inicio__ver-mas">Ver historial completo →</a>
+			</section>
+
+			<!-- ─── Tendencias ───────────────────────────── -->
+			<section>
+				<p class="inicio__seccion-titulo">Tendencias esta semana</p>
+				<div class="inicio__poster-row" id="inicio-tendencias"></div>
+				<a href="./peliculas.html" class="inicio__ver-mas">Ver todas las películas →</a>
+			</section>
+
+			<!-- ─── Favoritos ────────────────────────────── -->
+			<section>
+				<p class="inicio__seccion-titulo">Tus favoritos</p>
+				<div class="inicio__poster-row" id="inicio-favoritos"></div>
+				<a href="./perfil.html" class="inicio__ver-mas">Ver todos los favoritos →</a>
+			</section>
+
+			<!-- ─── Accesos rápidos ───────────────────────── -->
+			<div class="inicio__accesos">
+				<a href="./peliculas.html" class="inicio__acceso-card">
+					<em class="inicio__acceso-card-icono">&#9674;</em>
+					<span class="inicio__acceso-card-label">Películas</span>
+				</a>
+				<a href="./listas.html" class="inicio__acceso-card">
+					<em class="inicio__acceso-card-icono">&#8801;</em>
+					<span class="inicio__acceso-card-label">Listas</span>
+				</a>
+				<a href="./miembros.html" class="inicio__acceso-card">
+					<em class="inicio__acceso-card-icono">&#9786;</em>
+					<span class="inicio__acceso-card-label">Comunidad</span>
+				</a>
+				<a href="./perfil.html" class="inicio__acceso-card">
+					<em class="inicio__acceso-card-icono">&#9733;</em>
+					<span class="inicio__acceso-card-label">Mi Perfil</span>
+				</a>
+			</div>
+
+		</main>
+	</body>
+</html>

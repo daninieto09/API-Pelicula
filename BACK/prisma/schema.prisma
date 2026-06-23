@@ -1,0 +1,178 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Usuario {
+  id        Int      @id @default(autoincrement())
+  nombre    String   @db.VarChar(100)
+  email     String   @unique @db.VarChar(150)
+  password  String   @db.VarChar(255)
+  isAdmin   Boolean  @default(false)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  favoritos         Favorito[]
+  resenas           Resena[]
+  listas            Lista[]
+  historialVistas   HistorialVista[]
+  siguiendo         Seguidor[]         @relation("siguiendo")
+  seguidores        Seguidor[]         @relation("seguidores")
+  comentarios       ComentarioResena[]
+  comentariosListas ComentarioLista[]
+  likes             Like[]
+
+  @@map("usuarios")
+}
+
+model Favorito {
+  id          Int      @id @default(autoincrement())
+  usuarioId   Int
+  contenidoId Int
+  titulo      String   @db.VarChar(255)
+  poster      String?  @db.VarChar(500)
+  tipo        String   @db.VarChar(10)
+  genero      String?  @db.VarChar(100)
+  createdAt   DateTime @default(now())
+
+  usuario     Usuario  @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+
+  @@map("favoritos")
+}
+
+model Resena {
+  id           Int      @id @default(autoincrement())
+  usuarioId    Int
+  contenidoId  Int
+  titulo       String   @db.VarChar(255)
+  tipo         String   @db.VarChar(10)
+  genero       String?  @db.VarChar(100)
+  poster       String?  @db.VarChar(500)
+  calificacion Int
+  comentario   String?
+  createdAt    DateTime @default(now())
+
+  usuario     Usuario          @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  comentarios ComentarioResena[]
+
+  @@map("resenas")
+}
+
+model Lista {
+  id          Int      @id @default(autoincrement())
+  usuarioId   Int
+  nombre      String   @db.VarChar(100)
+  descripcion String?
+  isPrivada   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  usuario    Usuario          @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  contenidos ListaContenido[]
+  comentarios ComentarioLista[]
+
+  @@map("listas")
+}
+
+model ListaContenido {
+  id          Int      @id @default(autoincrement())
+  listaId     Int
+  contenidoId Int
+  titulo      String   @db.VarChar(255)
+  poster      String?  @db.VarChar(500)
+  tipo        String   @db.VarChar(10)
+  createdAt   DateTime @default(now())
+
+  lista       Lista    @relation(fields: [listaId], references: [id], onDelete: Cascade)
+
+  @@map("lista_contenido")
+}
+
+model HistorialVista {
+  id          Int      @id @default(autoincrement())
+  usuarioId   Int
+  contenidoId Int
+  titulo      String   @db.VarChar(255)
+  poster      String?  @db.VarChar(500)
+  tipo        String   @db.VarChar(10)
+  genero      String?  @db.VarChar(100)
+  createdAt   DateTime @default(now())
+
+  usuario     Usuario  @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+
+  @@map("historial_vistas")
+}
+
+model Seguidor {
+  id          Int      @id @default(autoincrement())
+  seguidorId  Int
+  siguiendoId Int
+  createdAt   DateTime @default(now())
+
+  seguidor    Usuario  @relation("seguidores", fields: [seguidorId], references: [id], onDelete: Cascade)
+  siguiendo   Usuario  @relation("siguiendo", fields: [siguiendoId], references: [id], onDelete: Cascade)
+
+  @@unique([seguidorId, siguiendoId])
+  @@map("seguidores")
+}
+
+model ComentarioResena {
+  id         Int      @id @default(autoincrement())
+  usuarioId  Int
+  resenaId   Int
+  comentario String
+  createdAt  DateTime @default(now())
+
+  usuario    Usuario  @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  resena     Resena   @relation(fields: [resenaId], references: [id], onDelete: Cascade)
+
+  @@map("comentarios_resenas")
+}
+
+model ComentarioLista {
+  id         Int      @id @default(autoincrement())
+  usuarioId  Int
+  listaId    Int
+  comentario String
+  createdAt  DateTime @default(now())
+  usuario    Usuario  @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  lista      Lista    @relation(fields: [listaId], references: [id], onDelete: Cascade)
+  @@map("comentarios_listas")
+}
+
+model Like {
+  id           Int      @id @default(autoincrement())
+  usuarioId    Int
+  tipo         String   @db.VarChar(10)
+  referenciaId Int
+  createdAt    DateTime @default(now())
+
+  usuario      Usuario  @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+
+  @@unique([usuarioId, tipo, referenciaId])
+  @@map("likes")
+}
+
+model MoviesCache {
+  id               Int      @id @default(autoincrement())
+  contenidoId      Int      @unique
+  tipo             String   @db.VarChar(10)
+  titulo           String   @db.VarChar(255)
+  poster           String?  @db.VarChar(500)
+  generos          String   @db.VarChar(255)
+  sinopsis         String?
+  fechaLanzamiento String?  @db.VarChar(20)
+  calificacionTmdb Float?
+  datos            Json
+  expiresAt        DateTime
+  createdAt        DateTime @default(now())
+
+  @@map("movies_cache")
+}

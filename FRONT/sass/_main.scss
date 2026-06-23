@@ -1,0 +1,132 @@
+@use 'variables';
+
+.main {
+    padding: 32px 40px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    min-height: 100vh;
+
+    &__filtros {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    &__titulo {
+        font-size: 15px;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+    }
+
+    // ─── Tarjetas estilo Letterboxd ────────────────────
+    &__grid {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    &__media {
+        cursor: pointer;
+
+        &:hover .main__media-img {
+            opacity: 0.85;
+        }
+
+        &:hover .main__media-titulo {
+            color: variables.$color-btn--active;
+        }
+    }
+
+    &__media-thumb {
+        display: block;
+        border-radius: 4px;
+        overflow: hidden;
+        margin-bottom: 8px;
+        background: variables.$color-btn;
+    }
+
+    &__media-img {
+        width: 100%;
+        aspect-ratio: 2/3;
+        object-fit: cover;
+        display: block;
+        transition: opacity 0.2s;
+    }
+
+    &__media-placeholder {
+        width: 100%;
+        aspect-ratio: 2/3;
+        background: variables.$color-btn;
+    }
+
+    // Overlay eliminado — título siempre visible abajo
+    &__media-overlay { display: none; }
+
+    &__media-titulo {
+        font-size: 12px;
+        font-weight: 600;
+        color: #ccc;
+        line-height: 1.4;
+        transition: color 0.2s;
+        margin-bottom: 2px;
+    }
+
+    &__media-genero {
+        font-size: 11px;
+        color: #555;
+    }
+
+    &__paginacion {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    // Desktop medio
+    @media (max-width: 1200px) {
+        &__grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    @media (max-width: 1024px) {
+        padding: 24px;
+        &__grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    }
+
+    @media (max-width: 768px) {
+        padding: 16px;
+        &__filtros { padding-left: 50px; }
+        &__grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    }
+
+    @media (max-width: 480px) {
+        &__filtros { justify-content: center; padding-left: 0; }
+        &__grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    }
+}
+
+// ─── Indicadores de actividad en cards ─────────────────────────
+.card__indicadores {
+    display: flex;
+    gap: 6px;
+    margin-top: 5px;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.main__media:hover .card__indicadores {
+    opacity: 1;
+}
+
+.card__ind {
+    font-size: 12px;
+    opacity: 0.25;
+
+    &--activo {
+        opacity: 1;
+        filter: drop-shadow(0 0 3px rgba(199, 23, 23, 0.4));
+    }
+}
