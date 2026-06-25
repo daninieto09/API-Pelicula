@@ -2,7 +2,9 @@
 
 const apiKey = "f7d9053e72bae73157a14fd0ad07e437";
 const urlBase = "https://api.themoviedb.org/3";
-const urlBack = `http://${window.location.hostname}:4000`;
+const urlBack =window.location.hostname.includes('localhost')
+  ? 'http://localhost:4000'
+  : 'https://cinetrack-api-skea.onrender.com';
 
 const obtenerGenero = (id, generos) => {
     let genero;
@@ -209,3 +211,4 @@ const cargarContenido = async () => {
 };
 
 cargarContenido();
+//# sourceMappingURL=landing-bundle.js.map

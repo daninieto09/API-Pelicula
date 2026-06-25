@@ -25,7 +25,9 @@ const manejarSesionExpirada = () => {
     window.location.href = './login.html';
 };
 
-const urlBack = `http://${window.location.hostname}:4000`;
+const urlBack =window.location.hostname.includes('localhost')
+  ? 'http://localhost:4000'
+  : 'https://cinetrack-api-skea.onrender.com';
 
 const URL = `${urlBack}/api/listas`;
 
@@ -468,3 +470,4 @@ const init = async () => {
 };
 
 init();
+//# sourceMappingURL=lista-bundle.js.map
