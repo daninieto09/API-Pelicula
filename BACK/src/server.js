@@ -37,7 +37,7 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 const CORS_ORIGINS = process.env.CORS_ORIGIN
     ? process.env.CORS_ORIGIN.split(',').map((o) => o.trim())
-    : ['http://127.0.0.1:5500', 'http://localhost:5500'];
+    : ['http://127.0.0.1:5500', 'http://localhost:5500', 'https://api-moviesandtv.netlify.app'];
 
 // ─── Middlewares globales ─────────────────────────────────────────────────────
 app.use(cors({ origin: CORS_ORIGINS, credentials: true }));
