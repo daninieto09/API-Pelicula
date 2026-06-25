@@ -34,6 +34,7 @@ import likesRoutes from './routes/likesRoutes.js';
 import errorHandler from './middlewares/errorHandler.js';
 
 const app = express();
+app.set('trust proxy', 1);
 const PORT = process.env.PORT || 4000;
 const CORS_ORIGINS = process.env.CORS_ORIGIN
     ? process.env.CORS_ORIGIN.split(',').map((o) => o.trim())
