@@ -39,6 +39,7 @@ export const registerUser = async (req, res) => {
             })
 
     } catch (error) {
+        console.error('[registerUser]', error);
         if (error.name === 'ZodError') {
             return res.status(400).json({ message: error.errors })
         }
